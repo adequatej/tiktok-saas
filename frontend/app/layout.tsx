@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
+import { siteConfig } from "@/lib/config";
 
 const bodyFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -21,11 +24,45 @@ const displayFont = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Earnflow AI",
-    template: "%s · Earnflow AI",
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s · ${siteConfig.name}`,
   },
-  description: "AI-powered income streams. Guides, tools, and playbooks for building durable revenue online.",
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [
+    "AI",
+    "income streams",
+    "affiliate",
+    "passive income",
+    "indie hackers",
+    "guides",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: siteConfig.twitter,
+    creator: siteConfig.twitter,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  },
+  robots: { index: true, follow: true },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  sameAs: [siteConfig.github],
 };
 
 export default function RootLayout({
@@ -39,7 +76,14 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </body>
     </html>
   );
