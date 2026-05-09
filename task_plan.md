@@ -1,6 +1,6 @@
 # Earnflow AI — Task Plan
 
-## Status: PLANNING
+## Status: IN PROGRESS (Phase 1 — Step 1.7 staged, uncommitted)
 
 ## Project Overview
 AI-powered income streams platform. Phase 1 = website + guides + affiliates.
@@ -20,18 +20,18 @@ AI-powered income streams platform. Phase 1 = website + guides + affiliates.
 
 ### Phase 1 — Ship It (Current)
 Lean, fastest-to-deploy stack. No separate backend — everything in Next.js + Supabase RLS. NO Docker, ECS, RDS, Lambda, Railway, or Terraform.
-- [ ] Repo bootstrap + Makefile
-- [ ] Next.js scaffold + Tailwind + shadcn/ui + design tokens
-- [ ] Marketing pages (landing, about, pricing, contact)
-- [ ] Guides MDX system + 2-3 seed guides
-- [ ] Affiliate redirect route handler
-- [ ] Supabase schema + migrations (users, guides, affiliate_links, affiliate_clicks)
-- [ ] Clerk auth (Next.js middleware + webhook user sync route handler)
-- [ ] Sentry (frontend)
-- [ ] Vercel deploy
-- [ ] Stripe checkout + entitlement webhook (route handler)
-- [ ] Resend transactional email (route handler)
-- [ ] GitHub Actions CI (lint/typecheck/tests)
+- [x] Step 1.1: Repo bootstrap + Makefile (19eedd7)
+- [x] Step 1.2: Next.js scaffold + Tailwind + shadcn/ui + design tokens (f9caf4b)
+- [x] Step 1.3: Marketing pages (landing, about, pricing, contact) (d9adefa)
+- [x] Step 1.4: Guides MDX system + 3 seed guides (11c9b5f)
+- [x] Step 1.5: Affiliate redirect route handler (52c2b15)
+- [x] Step 1.6: Supabase schema + migrations + client wrappers (2b93315)
+- [ ] Step 1.7: Clerk auth — proxy.ts middleware + webhook user sync (staged, not committed)
+- [ ] Step 1.8: Sentry (frontend error tracking)
+- [ ] Step 1.9: Vercel deploy
+- [ ] Step 1.10: Stripe checkout + entitlement webhook (route handler)
+- [ ] Step 1.11: Resend transactional email (route handler)
+- [ ] Step 1.12: GitHub Actions CI (lint/typecheck/tests)
 
 ### Phase 2 — FastAPI + AWS Migration & DevOps Showcase
 - [ ] Install superpowers skill and https://github.com/mattpocock/skills to especially use the /grill-me and /grill-with-docs and /tdd skills from it. Look for others if useful too. 
