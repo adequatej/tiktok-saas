@@ -6,12 +6,21 @@ export function Newsletter() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "ok">("idle");
 
-  // Phase 1 stub: wired to Resend in step 1.11
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
     setStatus("submitting");
-    setTimeout(() => setStatus("ok"), 400);
+    try {
+      const res = await fetch("/api/email/welcome", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("ok");
+    } catch {
+      setStatus("idle");
+    }
   }
 
   return (
