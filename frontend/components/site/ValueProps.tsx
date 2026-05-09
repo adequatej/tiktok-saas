@@ -18,7 +18,7 @@ const items = [
 
 export function ValueProps() {
   return (
-    <section className="border-b border-border/40 py-24">
+    <section className="bg-card py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl">
           <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
@@ -26,18 +26,19 @@ export function ValueProps() {
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             Built for TikTok Shop sellers
-            <br />
+            <br className="hidden sm:block" />
             who are serious about growth.
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-3">
+        <div className="mt-16 grid gap-x-12 gap-y-14 md:grid-cols-3">
           {items.map((item) => (
-            <div key={item.num}>
-              <span className="font-display text-sm font-semibold tracking-widest text-accent/60">
+            <div key={item.num} className="group">
+              <div className="mb-5 h-px w-8 bg-accent/40 transition-all duration-300 group-hover:w-14 group-hover:bg-accent/70" />
+              <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent/50">
                 {item.num}
               </span>
-              <h3 className="mt-4 font-display text-lg font-semibold leading-snug tracking-tight">
+              <h3 className="mt-3 font-display text-lg font-semibold leading-snug tracking-tight">
                 {item.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[82vh] flex-col items-center justify-center overflow-hidden border-b border-border/30 text-center">
+    <section className="relative flex min-h-[76vh] flex-col items-center justify-center overflow-hidden text-center">
       {/* Center-bottom amber glow */}
       <div
         aria-hidden
@@ -24,7 +24,17 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-4xl px-6 pb-20 pt-16">
+      {/* Gradient fade — blends into the next section without a hard border */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-32"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, var(--background))",
+        }}
+      />
+
+      <div className="relative mx-auto w-full max-w-4xl px-6 pb-24 pt-16">
         {/* Eyebrow */}
         <div className="hero-item mb-8 flex items-center justify-center gap-3">
           <span className="block h-px w-8 bg-accent/50" />
@@ -35,14 +45,14 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="hero-item font-display font-bold leading-[1.05] tracking-[-0.025em] text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="hero-item font-display text-4xl font-bold leading-[1.05] tracking-[-0.025em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           Create TikTok Shop videos
           <br />
           <span className="text-accent">that actually sell.</span>
         </h1>
 
         {/* Sub-headline */}
-        <p className="hero-item mx-auto mt-6 max-w-[520px] text-base leading-relaxed text-muted-foreground sm:text-lg sm:mt-8">
+        <p className="hero-item mx-auto mt-6 max-w-[520px] text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">
           Guides, scripts, and playbooks from a top TikTok Shop creator.
           Learn the exact system behind videos that convert.
         </p>
@@ -63,6 +73,17 @@ export function Hero() {
             See pricing
           </Link>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        aria-hidden
+        className="scroll-cue absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5"
+      >
+        <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-muted-foreground/40">
+          Scroll
+        </span>
+        <ChevronDown className="size-4 text-muted-foreground/35" />
       </div>
     </section>
   );

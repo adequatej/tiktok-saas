@@ -141,3 +141,13 @@ h6 {
 .hero-item:nth-child(2) { animation-delay: 120ms; }
 .hero-item:nth-child(3) { animation-delay: 230ms; }
 .hero-item:nth-child(4) { animation-delay: 340ms; }
+
+/* Scroll indicator — slow opacity pulse, no bounce */
+@keyframes scroll-cue {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50%       { opacity: 0.55; transform: translateY(4px); }
+}
+
+.scroll-cue {
+  animation: scroll-cue 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
