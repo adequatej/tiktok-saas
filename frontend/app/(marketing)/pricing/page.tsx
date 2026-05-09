@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { siteConfig } from "@/lib/config";
+import { CheckoutButton } from "@/components/site/CheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -84,12 +85,7 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/sign-up"
-            className="mt-10 inline-flex h-12 w-full items-center justify-center rounded-full bg-accent text-sm font-medium text-accent-foreground transition hover:bg-amber-400"
-          >
-            Buy the bundle
-          </Link>
+          <CheckoutButton />
         </div>
       </div>
     </section>
