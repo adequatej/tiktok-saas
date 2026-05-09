@@ -3,27 +3,18 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[88vh] flex-col justify-center overflow-hidden border-b border-border/30">
-      {/* Amber radial glow — bottom-left, asymmetric */}
+    <section className="relative flex min-h-[82vh] flex-col items-center justify-center overflow-hidden border-b border-border/30 text-center">
+      {/* Center-bottom amber glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 h-[640px] w-[640px]"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-2/3"
         style={{
           background:
-            "radial-gradient(circle, rgba(245,158,11,0.11) 0%, transparent 65%)",
-        }}
-      />
-      {/* Secondary glow — upper-right, very subtle depth */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-48 top-1/4 h-[480px] w-[480px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 65%)",
+            "radial-gradient(ellipse 80% 55% at 50% 100%, rgba(245,158,11,0.13) 0%, transparent 70%)",
         }}
       />
 
-      {/* Noise grain — premium editorial texture */}
+      {/* Noise grain */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.035]"
@@ -33,35 +24,31 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-24 pt-20 sm:pt-24 md:pt-28">
-        {/* Eyebrow with rule */}
-        <div className="hero-item mb-10 flex items-center gap-4">
-          <span className="block h-px w-10 bg-accent/50" />
+      <div className="relative mx-auto w-full max-w-4xl px-6 pb-20 pt-16">
+        {/* Eyebrow */}
+        <div className="hero-item mb-8 flex items-center justify-center gap-3">
+          <span className="block h-px w-8 bg-accent/50" />
           <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-accent/70">
             TikTok Shop&nbsp;&middot;&nbsp;Creator Playbook
           </p>
+          <span className="block h-px w-8 bg-accent/50" />
         </div>
 
-        {/* Headline — massive Clash Display, ~9–10rem on desktop */}
-        <h1
-          className="hero-item font-display font-bold leading-[0.92] tracking-[-0.03em] text-foreground"
-          style={{ fontSize: "clamp(3.75rem, 10.5vw, 9.5rem)" }}
-        >
-          The system
+        {/* Headline */}
+        <h1 className="hero-item font-display font-bold leading-[1.05] tracking-[-0.025em] text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+          Create TikTok Shop videos
           <br />
-          <span className="text-accent">they keep</span>
-          <br />
-          asking for.
+          <span className="text-accent">that actually sell.</span>
         </h1>
 
         {/* Sub-headline */}
-        <p className="hero-item mt-8 max-w-[460px] text-[1.0625rem] leading-[1.65] text-muted-foreground sm:mt-10 sm:text-lg">
-          Guides and playbooks from a top TikTok Shop creator, built for
-          sellers who want the same results.
+        <p className="hero-item mx-auto mt-6 max-w-[520px] text-base leading-relaxed text-muted-foreground sm:text-lg sm:mt-8">
+          Guides, scripts, and playbooks from a top TikTok Shop creator.
+          Learn the exact system behind videos that convert.
         </p>
 
-        {/* CTAs + social proof line */}
-        <div className="hero-item mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+        {/* CTAs */}
+        <div className="hero-item mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/guides"
             className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-7 text-sm font-semibold text-accent-foreground transition-colors hover:bg-amber-400"
@@ -69,9 +56,12 @@ export function Hero() {
             Read the playbook
             <ArrowRight className="size-4" />
           </Link>
-          <span className="text-sm text-muted-foreground">
-            Built by a top&nbsp;TikTok&nbsp;Shop creator
-          </span>
+          <Link
+            href="/pricing"
+            className="inline-flex h-12 items-center rounded-full border border-border px-7 text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:text-accent"
+          >
+            See pricing
+          </Link>
         </div>
       </div>
     </section>
