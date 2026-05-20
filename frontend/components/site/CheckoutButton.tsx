@@ -27,9 +27,9 @@ export function CheckoutButton() {
     <button
       onClick={handleClick}
       disabled={loading}
-      className="mt-10 inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-accent text-sm font-medium text-accent-foreground transition hover:bg-amber-400 disabled:opacity-60"
+      className="mt-8 inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground transition hover:bg-amber-400 disabled:opacity-60"
     >
-      {loading ? "Redirecting…" : "Buy the bundle"}
+      {loading ? "Redirecting…" : "Get the Founders Bundle →"}
     </button>
   );
 }
