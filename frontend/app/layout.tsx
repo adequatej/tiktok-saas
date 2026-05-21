@@ -66,28 +66,32 @@ const organizationJsonLd = {
   sameAs: [siteConfig.github],
 };
 
+const hasValidClerkKey =
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith("pk_") ?? false;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <ClerkProvider>
-      <html
-        lang="en"
-        className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
-      >
-        <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <script
-            type="application/ld+json"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-          />
-        </body>
-      </html>
-    </ClerkProvider>
+  const html = (
+    <html
+      lang="en"
+      className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </body>
+    </html>
   );
+
+  if (!hasValidClerkKey) return html;
+  return <ClerkProvider>{html}</ClerkProvider>;
 }

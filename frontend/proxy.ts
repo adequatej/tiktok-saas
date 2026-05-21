@@ -1,7 +1,10 @@
+import { NextResponse } from "next/server";
+import type { NextRequest, NextFetchEvent } from "next/server";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-// All routes are public in Phase 1 — no dashboard to protect yet.
-// This file is intentionally permissive; route protection will be added in Phase 2.
+const hasValidClerkKey =
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith("pk_") ?? false;
+
 const isPublicRoute = createRouteMatcher([
   "/",
   "/about",
@@ -13,16 +16,19 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/(.*)",
 ]);
 
-export const proxy = clerkMiddleware((_auth, _req) => {
-  // Phase 1: all routes are public — nothing to protect.
-  // isPublicRoute is referenced to suppress the unused-variable warning
-  // and to make future protection easy: just add auth.protect() here.
+// clerkMiddleware() is safe to construct even without a key —
+// it only reads the key when a request arrives (handled by the guard below).
+const clerkProxy = clerkMiddleware((_auth, _req) => {
   void isPublicRoute;
 });
 
+export function proxy(req: NextRequest, event: NextFetchEvent) {
+  if (!hasValidClerkKey) return NextResponse.next();
+  return clerkProxy(req, event);
+}
+
 export const config = {
   matcher: [
-    // Run on everything except Next.js internals and static assets
     "/((?!_next/static|_next/image|favicon\\.ico).*)",
   ],
 };
