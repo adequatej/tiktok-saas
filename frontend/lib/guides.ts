@@ -10,31 +10,31 @@ export type Guide = GuideMetadata & { slug: string };
 
 export const guides: Guide[] = [
   {
-    slug: "tiktok-affiliate-marketing",
-    title: "How to Make $1,000/Month with TikTok Affiliate Marketing",
+    slug: "ai-skeleton-video-method",
+    title: "The AI Skeleton Video — Why This Format Breaks the Algorithm",
     description:
-      "A step-by-step system for finding winning products, building trust with your audience, and generating consistent affiliate commissions on TikTok.",
-    publishedAt: "2024-03-15",
-    readingTime: "9 min read",
-    category: "Affiliate Marketing",
+      "What a skeleton video actually is, why TikTok's algorithm pushes it harder than traditional content, and why most creators haven't figured this out yet.",
+    publishedAt: "2026-04-10",
+    readingTime: "7 min read",
+    category: "AI Videos",
   },
   {
-    slug: "digital-products-passive-income",
-    title: "The Builder's Guide to Digital Product Income",
+    slug: "tiktok-shop-product-selection",
+    title: "Why Most TikTok Shop Creators Pick the Wrong Products",
     description:
-      "How to identify a profitable digital product, validate demand before building, and set up a sales system that runs while you sleep.",
-    publishedAt: "2024-03-22",
-    readingTime: "11 min read",
-    category: "Digital Products",
+      "The two filters that eliminate 80% of bad product choices — and why the products everyone else is pushing are often the worst ones to pick.",
+    publishedAt: "2026-04-18",
+    readingTime: "6 min read",
+    category: "Product Selection",
   },
   {
-    slug: "ai-content-creation",
-    title: "How to Use AI to Build a Content Income Machine",
+    slug: "tiktok-shop-hook-writing",
+    title: "The First 3 Seconds: Why Your Hook Decides Everything on TikTok Shop",
     description:
-      "Practical workflows for using AI tools to research, create, and distribute content at scale — without sounding like a robot.",
-    publishedAt: "2024-04-01",
-    readingTime: "8 min read",
-    category: "AI Tools",
+      "How TikTok's scroll behavior works, why the hook is the only variable that controls whether someone watches, and what most creators get wrong about it.",
+    publishedAt: "2026-04-25",
+    readingTime: "5 min read",
+    category: "Script Writing",
   },
 ];
 
