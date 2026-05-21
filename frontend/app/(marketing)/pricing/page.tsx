@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Play, ShieldCheck } from "lucide-react";
+import { Check, Play } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { CheckoutButton } from "@/components/site/CheckoutButton";
 import { CountdownTimer } from "@/components/site/CountdownTimer";
@@ -150,15 +150,6 @@ export default function PricingPage() {
               </div>
 
               <CheckoutButton />
-
-              <div className="mt-5 flex items-start gap-2.5">
-                <ShieldCheck className="mt-0.5 size-4 shrink-0 text-accent/60" />
-                <p className="text-xs leading-snug text-muted-foreground">
-                  14-day refund guarantee. If the playbook doesn&apos;t deliver
-                  value, reply to any email and we&apos;ll refund you — no
-                  questions.
-                </p>
-              </div>
             </div>
 
             {/* Right — feature list */}
@@ -179,7 +170,7 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Proof section — receipts */}
+      {/* Proof — earnings + video */}
       <div className="mt-24">
         <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           The receipts
@@ -188,8 +179,8 @@ export default function PricingPage() {
           Real numbers. Unedited.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
-          This isn&apos;t estimated revenue or best-case projections. Below is
-          the actual TikTok Shop Studio dashboard and the video that started it.
+          Not estimated revenue or best-case projections — the actual TikTok
+          Shop Studio dashboard and the video that started it.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -222,7 +213,6 @@ export default function PricingPage() {
             className="group overflow-hidden rounded-2xl border border-border/50 bg-card transition hover:border-accent/40"
           >
             <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-secondary/40">
-              {/* Amber glow behind play button */}
               <div
                 aria-hidden
                 className="absolute inset-0"
@@ -247,6 +237,58 @@ export default function PricingPage() {
               </p>
             </div>
           </a>
+        </div>
+      </div>
+
+      {/* Retainer deal email proof */}
+      <div className="mt-20">
+        <div className="rounded-2xl border border-border/40 bg-card/50 p-8 sm:p-10">
+          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent/70">
+                Guide 08 — How to land retainer deals
+              </p>
+              <h3 className="mt-2 font-display text-xl font-semibold tracking-tight sm:text-2xl">
+                Brands reached out. Here&apos;s what that looks like.
+              </h3>
+              <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                The bundle includes the exact outreach template and pitch
+                structure used to land these. Real emails, real clients.
+              </p>
+            </div>
+          </div>
+
+          {/* Email screenshot grid */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="overflow-hidden rounded-xl border border-border/50 bg-background">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/30">
+                <Image
+                  src="/images/email-proof-1.jpg"
+                  alt="Brand outreach email — retainer deal"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-xl border border-border/50 bg-background">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/30">
+                <Image
+                  src="/images/email-proof-2.jpg"
+                  alt="Brand outreach email — retainer deal"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            The template that gets replies like these is in{" "}
+            <span className="font-medium text-foreground">Guide 08</span>{" "}
+            — included in the bundle.
+          </p>
         </div>
       </div>
 
