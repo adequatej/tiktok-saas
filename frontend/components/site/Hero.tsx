@@ -53,7 +53,7 @@ export function Hero() {
         style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }}
       />
 
-      <div className="relative mx-auto w-full max-w-4xl px-6 pb-28 pt-16">
+      <div className="relative mx-auto w-full max-w-4xl px-6 pb-28 pt-8">
         {/* Eyebrow */}
         <div className="hero-item mb-8 flex items-center justify-center gap-3">
           <span className="block h-px w-8 bg-accent/50" />

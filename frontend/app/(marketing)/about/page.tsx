@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${siteConfig.name} — the people, the editorial standard, and what we won't publish.`,
+  description: `About ${siteConfig.name} — who's behind it and why it exists.`,
 };
 
 export default function AboutPage() {
@@ -13,24 +14,43 @@ export default function AboutPage() {
         About
       </p>
       <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
-        A media brand for builders, run like a magazine.
+        Built by a creator who&apos;s done it.
       </h1>
       <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
         <p>
-          Earnflow is a small editorial team that publishes long-form work on
-          AI-powered income streams. We pick a topic, talk to people who run it
-          for a living, ship the math, and move on. Then we keep updating the
-          piece for years.
+          I&apos;m a TikTok Shop creator. Not someone who studied TikTok Shop
+          — someone who runs it. The videos, the products, the editing system,
+          the AI tools, the brand deals. All of it, every day.
         </p>
         <p>
-          We don&apos;t publish reactive takes, listicles, or AI-generated
-          slurry. We don&apos;t turn every article into a funnel. The site is
-          the funnel — read the work; if it&apos;s useful, the rest follows.
+          The playbook on this site came from people messaging me on TikTok
+          asking how I do it. I got the same questions enough times that I
+          decided to write everything down properly, with real numbers attached.
         </p>
         <p>
-          Revenue comes from a paid bundle, transparent affiliate links, and
-          tools we sell to our readers. Nothing else.
+          Everything here is what I actually use — not what sounds good, not
+          what someone else said worked. If a technique is in the guide, it has
+          a result tied to it. Views, click rates, revenue. You can verify it.
         </p>
+        <p>
+          The paid bundle is the full system. The free guides are real, not
+          a teaser. Read those first, see if the quality holds up, then decide.
+        </p>
+      </div>
+
+      <div className="mt-12 border-t border-border/40 pt-10">
+        <p className="text-sm text-muted-foreground">
+          See it in action on TikTok:
+        </p>
+        <a
+          href={siteConfig.tiktokUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-flex items-center gap-1.5 font-medium text-accent transition hover:text-amber-400"
+        >
+          {siteConfig.tiktokHandle}
+          <ArrowUpRight className="size-4" />
+        </a>
       </div>
     </article>
   );

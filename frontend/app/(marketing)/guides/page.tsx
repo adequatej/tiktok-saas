@@ -7,11 +7,11 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Playbooks for building durable income online. No side-hustle filler — just what actually works.",
+    "The exact TikTok Shop playbooks behind [X]M+ views — filming, editing, scripting, and AI tools. Free and paid guides from a top creator.",
   openGraph: {
     title: `Guides — ${siteConfig.name}`,
     description:
-      "Playbooks for building durable income online. No side-hustle filler — just what actually works.",
+      "The exact TikTok Shop playbooks behind [X]M+ views — filming, editing, scripting, and AI tools.",
   },
 };
 
@@ -23,11 +23,11 @@ export default function GuidesPage() {
           Guides
         </p>
         <h1 className="font-display mb-4 text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-          Build income streams that compound.
+          The playbooks behind the numbers.
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          Deep-dive playbooks on affiliate marketing, digital products, and AI
-          tools. Written for builders, not browsers.
+          Free guides on the TikTok Shop video system — filming, AI tools,
+          scripting, and what actually drives sales. No filler.
         </p>
       </header>
 

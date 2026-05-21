@@ -31,4 +31,7 @@ export const footerLinks = {
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ],
+  social: [
+    { href: "https://www.tiktok.com/@yourhandle", label: "TikTok", external: true },
+  ],
 } as const;

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { footerLinks, siteConfig } from "@/lib/config";
 
 export function Footer() {
@@ -13,8 +14,18 @@ export function Footer() {
               {siteConfig.name}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {siteConfig.description}
+              The exact TikTok Shop video system behind [X]M+ views and $[X]K
+              in [X] weeks — guides, scripts, and playbooks from a top creator.
             </p>
+            <a
+              href={siteConfig.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition hover:text-amber-400"
+            >
+              {siteConfig.tiktokHandle} on TikTok
+              <ArrowUpRight className="size-3.5" />
+            </a>
           </div>
 
           <div>
@@ -58,7 +69,7 @@ export function Footer() {
           <p>
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p>{siteConfig.tagline}</p>
+          <p>Built for TikTok Shop creators who are serious about growth.</p>
         </div>
       </div>
     </footer>

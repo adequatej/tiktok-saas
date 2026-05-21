@@ -81,6 +81,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <Header />
+        {/* Spacer for fixed floating nav: 16px top padding + 56px nav height + 16px gap = 88px */}
+        <div className="h-[88px]" aria-hidden />
         <main className="flex-1">{children}</main>
         <Footer />
         <script
