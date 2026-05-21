@@ -6,6 +6,14 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   twitter: "@earnflow",
   github: "https://github.com/adequatej/tiktok-saas",
+
+  // TikTok creator profile — update before launch
+  tiktokHandle: "@yourhandle",
+  tiktokUrl: "https://www.tiktok.com/@yourhandle",
+
+  // Most viral video — used on the pricing page proof section
+  proofVideoUrl: "https://www.tiktok.com/@yourhandle/video/0000000000000000000",
+  proofVideoViews: "[X]M",
 } as const;
 
 export const navLinks = [

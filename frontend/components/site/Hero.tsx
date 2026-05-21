@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { siteConfig } from "@/lib/config";
 
 const stats: { value: string; label: string; amber?: boolean }[] = [
   { value: "[X]M+", label: "views in [X] days" },
@@ -92,8 +93,22 @@ export function Hero() {
           </Link>
         </div>
 
+        {/* TikTok handle */}
+        <div className="hero-item mt-8">
+          <a
+            href={siteConfig.tiktokUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <span className="font-medium text-accent">{siteConfig.tiktokHandle}</span>
+            on TikTok
+            <ArrowUpRight className="size-3.5" />
+          </a>
+        </div>
+
         {/* Proof stats — inline with dividers (Webflow/Linear style) */}
-        <div className="hero-item mt-14 flex items-center justify-center gap-6 sm:gap-10">
+        <div className="hero-item mt-10 flex items-center justify-center gap-6 sm:gap-10">
           {stats.map((stat, i) => (
             <div key={stat.label} className="flex items-center gap-6 sm:gap-10">
               <div className="text-center">

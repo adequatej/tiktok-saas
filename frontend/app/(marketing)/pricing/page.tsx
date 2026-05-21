@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Check, ShieldCheck } from "lucide-react";
+import { Check, Play, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { CheckoutButton } from "@/components/site/CheckoutButton";
 import { CountdownTimer } from "@/components/site/CountdownTimer";
@@ -14,43 +15,65 @@ export const metadata: Metadata = {
 const inside = [
   {
     num: "01",
-    title: "The filming & editing system",
-    body: "Every step of the production workflow — gear, setup, lighting, editing decisions — documented from videos that hit [X]M+ views.",
+    title: "The AI skeleton video system",
+    body: "The exact prompting workflow behind [X]M+ views — which AI tools, which models, which settings. Includes the full prompt library so you can generate a polished video in under an hour.",
   },
   {
     num: "02",
-    title: "Word-for-word video scripts",
-    body: "The hooks, bridges, and CTAs lifted directly from top-converting TikTok Shop videos. Adapt the template, record, post.",
+    title: "Full software stack & settings",
+    body: "Every piece of software in the production chain from generation to final export. Exact settings, plugins, and workflow documented so you skip the trial-and-error phase entirely.",
   },
   {
     num: "03",
-    title: "The AI skeleton video method",
-    body: "How [X] AI-assisted skeleton videos generated [X]M+ views in [X] days. Full breakdown: prompt structure, edit pass, thumbnail.",
+    title: "Editing techniques for virality",
+    body: "Pacing, hook structure, sound layering, caption timing, and text overlay decisions — pulled frame-by-frame from videos that hit millions of views. What drives watch time and what kills it.",
   },
   {
     num: "04",
-    title: "Product selection playbook",
-    body: "The criteria used to pick products before filming. What makes a product film well, convert well, and repeat — with real examples.",
+    title: "Script writing framework",
+    body: "The hook → bridge → CTA structure used in every top-converting video. Word-for-word templates you adapt to your product, record in 20 minutes, and post the same day.",
   },
   {
     num: "05",
-    title: "Analytics & iteration guide",
-    body: "How to read TikTok Shop analytics to find what's working and double down. What numbers actually matter and what to ignore.",
+    title: "Violation avoidance guide",
+    body: "TikTok's content policies have traps that shadowban or kill accounts — specific words, frames, and patterns that trigger flags. The complete list of what to avoid and exactly why each one gets flagged.",
   },
   {
     num: "06",
-    title: "Spreadsheets & swipe files",
-    body: "Every template, tracker, and reference doc used in day-to-day content production. Download, duplicate, use immediately.",
+    title: "Conversion rate optimization",
+    body: "How to optimize your TikTok Shop link, product listing, thumbnail, caption, and link-in-bio to turn views into clicks and clicks into sales. The full funnel from scroll-stop to purchase.",
+  },
+  {
+    num: "07",
+    title: "Product selection playbook",
+    body: "The criteria for picking products before you film — what converts on TikTok Shop, what looks good AI-generated, what margin supports the effort. Worked examples from products that hit.",
+  },
+  {
+    num: "08",
+    title: "How to land retainer deals",
+    body: "How to pitch brands, structure your offer, price your services, and scope retainer work. The messaging and framework used to sign clients directly from TikTok content.",
+  },
+  {
+    num: "09",
+    title: "Analytics & iteration system",
+    body: "Which TikTok Shop metrics actually predict sales — hint: not just views. How to read the dashboard, find what's working, cut what isn't, and systematically double down on winners.",
+  },
+  {
+    num: "10",
+    title: "Tools, voices & audio library",
+    body: "The complete list of AI voice tools, trending audio sources, and royalty-free sound libraries used in every video. Plug-and-play references, updated with every future guide drop.",
   },
 ];
 
 const founders = [
-  "All 6 premium guides, today and every future drop",
-  "Word-for-word video scripts and content frameworks",
-  "Spreadsheets, trackers, and swipe files",
-  "The AI skeleton video method — full breakdown",
-  "Lifetime updates as the playbook evolves",
-  "Direct line to the editorial team",
+  "All 10 guides — today and every future drop",
+  "AI prompting library + full software stack",
+  "Word-for-word scripts and content templates",
+  "Violation avoidance guide (keep your account safe)",
+  "Conversion rate + retainer deal playbooks",
+  "Tools, voices, and audio reference library",
+  "Lifetime updates as the system evolves",
+  "Direct line to the creator",
 ];
 
 const { founderPrice, fullPrice, spotsRemaining, spotsTotal, countdownEnd } =
@@ -95,7 +118,6 @@ export default function PricingPage() {
 
       {/* Main pricing card */}
       <div className="relative mt-14 overflow-hidden rounded-3xl border border-accent bg-card ring-1 ring-accent/20">
-        {/* Ambient glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96"
@@ -109,7 +131,6 @@ export default function PricingPage() {
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
             {/* Left — price + spots + CTA */}
             <div className="lg:w-64 lg:shrink-0">
-              {/* Spot badge */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -118,7 +139,6 @@ export default function PricingPage() {
                 {spotsRemaining} of {spotsTotal} spots at this price
               </div>
 
-              {/* Price */}
               <div>
                 <p className="font-display text-6xl font-bold tracking-tight">
                   ${founderPrice}
@@ -131,7 +151,6 @@ export default function PricingPage() {
 
               <CheckoutButton />
 
-              {/* Guarantee */}
               <div className="mt-5 flex items-start gap-2.5">
                 <ShieldCheck className="mt-0.5 size-4 shrink-0 text-accent/60" />
                 <p className="text-xs leading-snug text-muted-foreground">
@@ -160,17 +179,88 @@ export default function PricingPage() {
         </div>
       </div>
 
+      {/* Proof section — receipts */}
+      <div className="mt-24">
+        <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          The receipts
+        </p>
+        <h2 className="text-center font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Real numbers. Unedited.
+        </h2>
+        <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
+          This isn&apos;t estimated revenue or best-case projections. Below is
+          the actual TikTok Shop Studio dashboard and the video that started it.
+        </p>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {/* Earnings screenshot */}
+          <div className="overflow-hidden rounded-2xl border border-border/50 bg-card">
+            <div className="relative aspect-video w-full overflow-hidden bg-secondary/40">
+              <Image
+                src="/images/proof-earnings.jpg"
+                alt="TikTok Shop Studio earnings dashboard — 1 week"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+            <div className="p-5">
+              <p className="text-sm font-semibold text-foreground">
+                TikTok Shop Studio
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                1 week of earnings — unedited screenshot
+              </p>
+            </div>
+          </div>
+
+          {/* Viral video card */}
+          <a
+            href={siteConfig.proofVideoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group overflow-hidden rounded-2xl border border-border/50 bg-card transition hover:border-accent/40"
+          >
+            <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-secondary/40">
+              {/* Amber glow behind play button */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,158,11,0.12) 0%, transparent 70%)",
+                }}
+              />
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-accent transition group-hover:bg-amber-400">
+                <Play className="ml-0.5 size-5 text-accent-foreground" fill="currentColor" />
+              </div>
+              <div className="absolute bottom-3 left-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                {siteConfig.proofVideoViews} views
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-sm font-semibold text-foreground">
+                Most viral video
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Watch on TikTok ↗
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
       {/* What's inside — detailed grid */}
       <div className="mt-24">
         <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           What&apos;s inside
         </p>
         <h2 className="text-center font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-          Six guides. Zero filler.
+          Ten guides. Zero filler.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
           Every piece is built from what actually worked inside a top TikTok
-          Shop — not theory, not repurposed content.
+          Shop — not theory pulled from someone else&apos;s playbook.
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -194,7 +284,7 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Free tier — minimal, below the fold */}
+      {/* Free tier */}
       <div className="mt-20 border-t border-border/40 pt-16">
         <div className="mx-auto max-w-md rounded-2xl border border-border bg-card p-8 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
