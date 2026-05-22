@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const steps = ["Film", "Edit", "Post"];
 
 const scriptLines = [
@@ -9,20 +13,37 @@ const scriptLines = [
   { w: "w-4/5" },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.08,
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  }),
+};
+
 export function ValueProps() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Section label */}
         <p className="mb-10 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           What you get
         </p>
 
-        {/* Bento grid */}
         <div className="flex flex-col gap-4 lg:flex-row">
           {/* Large card — filming system */}
-          <div className="relative flex flex-[3] flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8">
-            {/* Decorative number */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="relative flex flex-[3] flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
+          >
             <span
               aria-hidden
               className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
@@ -31,7 +52,6 @@ export function ValueProps() {
               01
             </span>
 
-            {/* Top accent line */}
             <div className="mb-6 h-px w-10 bg-accent/60" />
 
             <div>
@@ -48,7 +68,6 @@ export function ValueProps() {
               </p>
             </div>
 
-            {/* Step flow visual */}
             <div className="mt-10 flex items-center gap-2">
               {steps.map((step, i) => (
                 <div key={step} className="flex items-center gap-2">
@@ -61,12 +80,18 @@ export function ValueProps() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right column — 2 stacked cards */}
           <div className="flex flex-[2] flex-col gap-4">
-            {/* Scripts card */}
-            <div className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8">
+            <motion.div
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
+            >
               <span
                 aria-hidden
                 className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
@@ -87,7 +112,6 @@ export function ValueProps() {
                 </p>
               </div>
 
-              {/* Script line mockup */}
               <div className="mt-6 space-y-2">
                 {scriptLines.map((line, i) => (
                   <div
@@ -98,10 +122,16 @@ export function ValueProps() {
                   />
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Results card */}
-            <div className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8">
+            <motion.div
+              custom={2}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
+            >
               <span
                 aria-hidden
                 className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
@@ -123,7 +153,6 @@ export function ValueProps() {
                 </p>
               </div>
 
-              {/* Stat hero */}
               <div className="mt-6">
                 <p className="font-display text-4xl font-bold text-accent">
                   $[X]K
@@ -132,7 +161,7 @@ export function ValueProps() {
                   in [X] weeks from [X] videos
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

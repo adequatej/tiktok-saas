@@ -14,12 +14,12 @@ AI-powered income streams platform. Phase 1 = website + guides + affiliates. See
 - **Phase 2:** Introduce FastAPI → AWS migration — ECS Fargate, RDS, Terraform, Cloudflare TLS, Secrets Manager
 - **Phase 3:** Applied AI — Lambda, Step Functions, Kinesis Firehose, EventBridge, guide generation pipeline
 
-## Design Rules (NON-NEGOTIABLE)
-- NO blue/purple gradients anywhere
-- NO Inter or Geist font — use Clash Display (headers) + Plus Jakarta Sans (body)
-- NO AI-looking icons — SVG only (Lucide/Heroicons)
-- Color palette: warm black #0f0d0b bg, cream #f5f0e8 text, amber #f59e0b accent
-- Feels like premium media brand, NOT a SaaS tool
+## Design Rules (Current defaults — palette and fonts under active exploration)
+- NO blue/purple gradients anywhere (firm)
+- NO AI-looking icons — SVG only (Lucide/Heroicons) (firm)
+- Feels like premium media brand, NOT a SaaS tool (firm)
+- Current palette: warm black #0f0d0b bg, cream #f5f0e8 text, amber #f59e0b accent — subject to refinement during brand identity phase
+- Current fonts: Clash Display (headers) + Plus Jakarta Sans (body) — subject to exploration
 
 ## Security
 - Never expose ANTHROPIC_API_KEY or system prompts to frontend
