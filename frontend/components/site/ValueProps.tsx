@@ -155,10 +155,10 @@ export function ValueProps() {
 
               <div className="mt-6">
                 <p className="font-display text-4xl font-bold text-accent">
-                  $[X]K
+                  $5K
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  in [X] weeks from [X] videos
+                  in 1 week from 2 videos
                 </p>
               </div>
             </motion.div>

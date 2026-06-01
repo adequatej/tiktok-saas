@@ -27,12 +27,13 @@ export function HomeProof() {
             viewport={{ once: true, amount: 0.2 }}
             className="w-full overflow-hidden rounded-2xl border border-border/50 bg-card sm:max-w-sm"
           >
-            <div className="relative aspect-video w-full overflow-hidden bg-secondary/40">
+            <div className="w-full overflow-hidden bg-secondary/40">
               <Image
                 src="/images/proof-earnings.jpg"
                 alt="TikTok Shop Studio — 1 week earnings"
-                fill
-                className="object-cover object-top"
+                width={800}
+                height={800}
+                className="h-auto w-full"
                 sizes="(max-width: 640px) 100vw, 384px"
               />
             </div>
@@ -78,12 +79,13 @@ export function HomeProof() {
               viewport={{ once: true, amount: 0.2 }}
               className="overflow-hidden rounded-2xl border border-border/50 bg-card"
             >
-              <div className="relative aspect-[16/7] w-full overflow-hidden bg-secondary/40">
+              <div className="w-full overflow-hidden bg-secondary/40">
                 <Image
                   src="/images/email-proof-1.jpg"
                   alt="Brand retainer deal email"
-                  fill
-                  className="object-cover object-top"
+                  width={1200}
+                  height={1200}
+                  className="h-auto w-full"
                   sizes="(max-width: 640px) 100vw, 640px"
                 />
               </div>

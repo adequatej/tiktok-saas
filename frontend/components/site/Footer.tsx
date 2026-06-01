@@ -14,8 +14,8 @@ export function Footer() {
               {siteConfig.name}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              The exact TikTok Shop video system behind [X]M+ views and $[X]K
-              in [X] weeks — guides, scripts, and playbooks from a top creator.
+              The exact TikTok Shop video system behind 10M+ views and $5K
+              in one week — guides, scripts, and playbooks from a top creator.
             </p>
             <a
               href={siteConfig.tiktokUrl}

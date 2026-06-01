@@ -35,8 +35,14 @@ export async function POST(request: Request) {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
-      console.log("Checkout completed:", session.client_reference_id);
-      // TODO(step-2.x): upsert subscription entitlement in Supabase
+      const email = session.customer_details?.email;
+      if (email) {
+        await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/email/welcome`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+      }
       break;
     }
     case "customer.subscription.deleted": {

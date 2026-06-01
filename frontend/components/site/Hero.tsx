@@ -76,8 +76,8 @@ export function Hero() {
 
             {/* Sub-headline */}
             <p className="hero-item mt-6 max-w-[440px] text-base leading-relaxed text-foreground/55 sm:text-lg">
-              Learn how [X]M+ views and $[X]K in [X] weeks came from
-              just [X] AI skeleton videos — and how to replicate it.
+              Learn how 10M+ views and $5K in one week came from
+              just 2 AI skeleton videos — and how to replicate it.
             </p>
 
             {/* CTAs — button-in-button trailing icon */}
@@ -125,20 +125,20 @@ export function Hero() {
           <div className="flex flex-wrap gap-3">
             {/* Earnings */}
             <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
-              <p className="font-display text-2xl font-bold text-accent">$[X]K</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">earned in [X] weeks</p>
+              <p className="font-display text-2xl font-bold text-accent">$5K</p>
+              <p className="mt-0.5 text-[11px] text-foreground/35">earned in 1 week</p>
             </div>
 
             {/* Views */}
             <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
-              <p className="font-display text-2xl font-bold text-foreground">[X]M+</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">views from [X] videos</p>
+              <p className="font-display text-2xl font-bold text-foreground">10M+</p>
+              <p className="mt-0.5 text-[11px] text-foreground/35">views from 2 videos</p>
             </div>
 
             {/* Brand deals */}
             <div className="hidden rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm sm:block">
-              <p className="font-display text-2xl font-bold text-foreground">[X]</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">brand deals landed</p>
+              <p className="font-display text-2xl font-bold text-foreground">3</p>
+              <p className="mt-0.5 text-[11px] text-foreground/35">brand deals — $5K+</p>
             </div>
           </div>
         </div>

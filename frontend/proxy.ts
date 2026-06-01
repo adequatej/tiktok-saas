@@ -10,16 +10,17 @@ const isPublicRoute = createRouteMatcher([
   "/about",
   "/pricing",
   "/contact",
-  "/guides",
-  "/guides/(.*)",
   "/go/(.*)",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
   "/api/webhooks/(.*)",
+  "/api/stripe/(.*)",
 ]);
 
-// clerkMiddleware() is safe to construct even without a key —
-// it only reads the key when a request arrives (handled by the guard below).
-const clerkProxy = clerkMiddleware((_auth, _req) => {
-  void isPublicRoute;
+const clerkProxy = clerkMiddleware(async (auth, req) => {
+  if (!isPublicRoute(req)) {
+    await auth.protect();
+  }
 });
 
 export function proxy(req: NextRequest, event: NextFetchEvent) {
