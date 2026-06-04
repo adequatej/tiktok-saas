@@ -2,167 +2,147 @@
 
 import { motion } from "framer-motion";
 
+const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
+
 const steps = ["Film", "Edit", "Post"];
 
-const scriptLines = [
-  { w: "w-3/4" },
-  { w: "w-full" },
-  { w: "w-5/6" },
-  { w: "w-2/3" },
-  { w: "w-full" },
-  { w: "w-4/5" },
-];
+const cards = [
+  {
+    number: "01",
+    tag: "The System",
+    headline: "A filming workflow that actually scales",
+    body: "Step-by-step guides for setup, recording, and editing AI skeleton videos — the exact process behind a 5M+ view upload.",
+    visual: "flow",
+  },
+  {
+    number: "02",
+    tag: "The Scripts",
+    headline: "Copy-paste hooks that stop the scroll",
+    body: "First-line hooks, CTAs, and content frameworks taken directly from videos that converted.",
+    visual: "hook",
+  },
+  {
+    number: "03",
+    tag: "The Proof",
+    headline: "Every technique tied to real numbers",
+    body: "No vague advice. Every guide comes with screenshots and stats you can verify yourself.",
+    visual: "stats",
+  },
+] as const;
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.08,
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-    },
-  }),
-};
+const proofStats = [
+  { value: "$5K", label: "1 week" },
+  { value: "10M+", label: "views" },
+  { value: "3", label: "brand deals" },
+];
 
 export function ValueProps() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-10 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-          What you get
-        </p>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-14"
+        >
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            What you get
+          </p>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Everything you need.
+            <br />
+            <span className="text-muted-foreground/60">Nothing you don&apos;t.</span>
+          </h2>
+        </motion.div>
 
-        <div className="flex flex-col gap-4 lg:flex-row">
-          {/* Large card — filming system */}
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="relative flex flex-[3] flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
-              style={{ opacity: 0.05 }}
+        {/* Cards */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          {cards.map((card, i) => (
+            <motion.div
+              key={card.number}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ delay: i * 0.08, duration: 0.6, ease: EASE }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card p-7 transition-colors duration-300 hover:border-border"
             >
-              01
-            </span>
+              {/* Number + tag */}
+              <div className="mb-5 flex items-center gap-2">
+                <span className="font-display text-[11px] font-semibold tracking-[0.18em] text-accent/70">
+                  {card.number}
+                </span>
+                <span className="h-px flex-1 bg-border/50" />
+                <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground/50">
+                  {card.tag}
+                </span>
+              </div>
 
-            <div className="mb-6 h-px w-10 bg-accent/60" />
-
-            <div>
-              <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent/60">
-                01
-              </span>
-              <h3 className="mt-3 font-display text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
-                The exact filming and editing system
+              {/* Headline */}
+              <h3 className="font-display text-[1.15rem] font-semibold leading-snug tracking-tight text-foreground">
+                {card.headline}
               </h3>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Step-by-step guides covering setup, process, and tools used in
-                top-performing TikTok Shop videos. No theory — the actual
-                workflow.
+
+              {/* Body */}
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {card.body}
               </p>
-            </div>
 
-            <div className="mt-10 flex items-center gap-2">
-              {steps.map((step, i) => (
-                <div key={step} className="flex items-center gap-2">
-                  <div className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
-                    {step}
+              {/* Visual — pushed to bottom */}
+              <div className="mt-auto pt-8">
+                {card.visual === "flow" && (
+                  <div className="flex flex-wrap items-center gap-2">
+                    {steps.map((step, j) => (
+                      <div key={step} className="flex items-center gap-2">
+                        <div className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
+                          {step}
+                        </div>
+                        {j < steps.length - 1 && (
+                          <div className="h-px w-3 bg-border/60" />
+                        )}
+                      </div>
+                    ))}
+                    <div className="h-px w-3 bg-border/60" />
+                    <div className="rounded-full border border-foreground/15 bg-foreground/5 px-3 py-1.5 text-xs font-medium text-foreground/50">
+                      $$$
+                    </div>
                   </div>
-                  {i < steps.length - 1 && (
-                    <div className="h-px w-4 bg-border/60" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                )}
 
-          {/* Right column — 2 stacked cards */}
-          <div className="flex flex-[2] flex-col gap-4">
-            <motion.div
-              custom={1}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
-                style={{ opacity: 0.05 }}
-              >
-                02
-              </span>
+                {card.visual === "hook" && (
+                  <div className="rounded-xl border border-accent/10 bg-accent/[0.05] p-4">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-accent/60">
+                      Hook template
+                    </p>
+                    <p className="text-[13px] italic leading-relaxed text-foreground/55">
+                      &ldquo;I made $5K in 7 days selling one product on TikTok Shop.
+                      Here&rsquo;s exactly how&nbsp;I did it...&rdquo;
+                    </p>
+                  </div>
+                )}
 
-              <div>
-                <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent/60">
-                  02
-                </span>
-                <h3 className="mt-3 font-display text-lg font-semibold leading-snug tracking-tight">
-                  Scripts &amp; content templates
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Ready-to-use frameworks taken from videos that convert.
-                </p>
-              </div>
-
-              <div className="mt-6 space-y-2">
-                {scriptLines.map((line, i) => (
-                  <div
-                    key={i}
-                    className={`h-1.5 rounded-full bg-border/60 ${line.w} ${
-                      i === 0 ? "bg-accent/25" : ""
-                    }`}
-                  />
-                ))}
+                {card.visual === "stats" && (
+                  <div className="grid grid-cols-3 gap-2">
+                    {proofStats.map((s) => (
+                      <div
+                        key={s.value}
+                        className="rounded-xl border border-border/30 bg-background/60 p-3 text-center"
+                      >
+                        <p className="font-display text-lg font-bold text-accent">
+                          {s.value}
+                        </p>
+                        <p className="mt-0.5 text-[10px] text-muted-foreground">
+                          {s.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
-
-            <motion.div
-              custom={2}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              className="relative flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border/50 bg-card p-8"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-4 -top-6 font-display text-[10rem] font-bold leading-none text-accent"
-                style={{ opacity: 0.05 }}
-              >
-                03
-              </span>
-
-              <div>
-                <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent/60">
-                  03
-                </span>
-                <h3 className="mt-3 font-display text-lg font-semibold leading-snug tracking-tight">
-                  Results you can verify
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Every technique shown with real data — views, click rates, and
-                  sales. No vague advice.
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <p className="font-display text-4xl font-bold text-accent">
-                  $5K
-                </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  in 1 week from 2 videos
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

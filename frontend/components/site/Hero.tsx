@@ -1,11 +1,32 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 
+const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
+
+const chapters = [
+  "AI Skeleton Framework",
+  "Hook Engineering",
+  "Brand Deal Outreach",
+  "Editing Workflow",
+  "Content Calendar",
+];
+
+const resultStats = [
+  { value: "$5K", label: "week 1 earnings" },
+  { value: "10M+", label: "total views" },
+  { value: "3", label: "brand deals" },
+];
+
+const textLines = [95, 88, 72, 85, 60, 90];
+
 export function Hero() {
   return (
     <section className="relative flex min-h-[100dvh] flex-col overflow-hidden">
-      {/* Full-bleed background video — drop hero-video.mp4 into public/videos/ */}
+      {/* Background video */}
       <video
         autoPlay
         muted
@@ -18,7 +39,7 @@ export function Hero() {
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Placeholder glow — right side warms even when no video is loaded */}
+      {/* Amber glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -28,7 +49,7 @@ export function Hero() {
         }}
       />
 
-      {/* Split overlay — left dark for text, right opens for creator */}
+      {/* Split overlay */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -57,91 +78,184 @@ export function Hero() {
         }}
       />
 
-      {/* ── Main content — flex-1 so it fills space above proof strip ── */}
-      <div className="relative flex flex-1 items-center px-6 pt-24 sm:pt-28">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="max-w-[560px]">
-            {/* Headline */}
-            <h1 className="hero-item font-display font-bold leading-[0.88] tracking-[-0.03em]">
-              <span className="block text-[3rem] text-foreground sm:text-[4rem] lg:text-[5.5rem]">
-                Create TikTok Shop
-              </span>
-              <span className="block text-[3rem] text-foreground sm:text-[4rem] lg:text-[5.5rem]">
-                videos that
-              </span>
-              <span className="block text-[3rem] text-accent sm:text-[4rem] lg:text-[5.5rem]">
-                actually sell.
-              </span>
-            </h1>
+      {/* Content */}
+      <div className="relative flex flex-1 flex-col">
+        {/* Headline + CTAs */}
+        <div className="px-6 pb-6 pt-20 sm:pt-24">
+          <div className="mx-auto w-full max-w-6xl">
+            <div className="max-w-[520px]">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: EASE }}
+                className="font-display font-bold leading-[0.88] tracking-[-0.03em]"
+              >
+                <span className="block text-[2.5rem] text-foreground sm:text-[3.25rem] lg:text-[4rem]">
+                  Create TikTok Shop
+                </span>
+                <span className="block text-[2.5rem] text-foreground sm:text-[3.25rem] lg:text-[4rem]">
+                  videos that
+                </span>
+                <span className="block text-[2.5rem] text-accent sm:text-[3.25rem] lg:text-[4rem]">
+                  actually sell.
+                </span>
+              </motion.h1>
 
-            {/* Sub-headline */}
-            <p className="hero-item mt-6 max-w-[440px] text-base leading-relaxed text-foreground/55 sm:text-lg">
-              Learn how 10M+ views and $5K in one week came from
-              just 2 AI skeleton videos — and how to replicate it.
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.7, ease: EASE }}
+                className="mt-4 max-w-[440px] text-base leading-relaxed text-foreground/55 sm:text-lg"
+              >
+                Learn how 10M+ views and $5K in one week came from
+                just 2 AI skeleton videos — and how to replicate it.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.7, ease: EASE }}
+                className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+              >
+                <Link
+                  href="/guides"
+                  className="group inline-flex h-12 items-center rounded-full bg-accent pl-6 pr-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-amber-400"
+                >
+                  Read the playbook
+                  <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/15 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <ArrowRight className="size-3.5" />
+                  </span>
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-sm font-medium text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
+                >
+                  See pricing
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
+                className="mt-6"
+              >
+                <a
+                  href={siteConfig.tiktokUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-foreground/35 transition-colors hover:text-foreground/65"
+                >
+                  <span className="text-accent/70">{siteConfig.tiktokHandle}</span>
+                  on TikTok
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pushes mock to the bottom of the viewport */}
+        <div className="flex-1" />
+
+        {/* Product peek — slides up after headline settles */}
+        <motion.div
+          initial={{ opacity: 0, y: 64 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.95, ease: EASE }}
+          className="relative px-4 pb-0 sm:px-6"
+        >
+          <div className="mx-auto max-w-5xl">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-foreground/25">
+              Inside the playbook
             </p>
 
-            {/* CTAs — button-in-button trailing icon */}
-            <div className="hero-item mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/guides"
-                className="group inline-flex h-12 items-center rounded-full bg-accent pl-6 pr-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-amber-400"
-              >
-                Read the playbook
-                <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/15 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowRight className="size-3.5" />
-                </span>
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-sm font-medium text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
-              >
-                See pricing
-              </Link>
-            </div>
+            {/* Browser chrome mock */}
+            <div className="overflow-hidden rounded-t-2xl border border-white/[0.09] bg-[#18140f] shadow-[0_-20px_80px_rgba(0,0,0,0.55)]">
+              {/* Title bar */}
+              <div className="flex items-center gap-3 border-b border-white/[0.06] bg-[#13100b] px-4 py-2.5">
+                <div className="flex gap-1.5">
+                  {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
+                    <div
+                      key={c}
+                      className="h-2.5 w-2.5 rounded-full"
+                      style={{ background: c, opacity: 0.35 }}
+                    />
+                  ))}
+                </div>
+                <div className="flex-1">
+                  <div className="mx-auto w-fit rounded-md bg-white/[0.04] px-4 py-0.5 text-[11px] text-white/20">
+                    earnflow.ai/guides
+                  </div>
+                </div>
+              </div>
 
-            {/* TikTok handle */}
-            <div className="hero-item mt-6">
-              <a
-                href={siteConfig.tiktokUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-foreground/35 transition-colors hover:text-foreground/65"
-              >
-                <span className="text-accent/70">{siteConfig.tiktokHandle}</span>
-                on TikTok
-                <ArrowUpRight className="size-3.5" />
-              </a>
+              {/* Two-column layout */}
+              <div className="grid divide-x divide-white/[0.05] sm:grid-cols-[210px_1fr]">
+                {/* Chapter sidebar */}
+                <div className="hidden p-3 sm:block">
+                  <p className="mb-2 px-3 text-[10px] font-medium uppercase tracking-widest text-white/20">
+                    Chapters
+                  </p>
+                  <div className="space-y-0.5">
+                    {chapters.map((ch, i) => (
+                      <div
+                        key={i}
+                        className={`rounded-lg px-3 py-2 text-[12px] transition-colors ${
+                          i === 0
+                            ? "bg-accent/10 font-medium text-accent"
+                            : "text-white/25"
+                        }`}
+                      >
+                        {ch}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Guide content */}
+                <div className="p-5 sm:p-6">
+                  <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.2em] text-accent/50">
+                    Chapter 01
+                  </p>
+                  <p className="mb-5 font-display text-lg font-semibold text-white/80 sm:text-xl">
+                    The AI Skeleton Framework
+                  </p>
+
+                  {/* Text preview lines */}
+                  <div className="space-y-2.5">
+                    {textLines.map((w, i) => (
+                      <div
+                        key={i}
+                        className={`h-1.5 rounded-full ${
+                          i === 0 ? "bg-accent/25" : "bg-white/[0.07]"
+                        }`}
+                        style={{ width: `${w}%` }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Stats row */}
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-white/[0.05] pt-5">
+                    {resultStats.map((stat) => (
+                      <div
+                        key={stat.value}
+                        className="rounded-xl bg-white/[0.04] px-4 py-2.5 backdrop-blur-sm"
+                      >
+                        <p className="font-display text-lg font-bold text-accent">
+                          {stat.value}
+                        </p>
+                        <p className="mt-0.5 text-[10px] text-white/30">
+                          {stat.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* ── Proof peek — draws eye down, no scroll cue needed ── */}
-      <div className="relative z-10 w-full px-6 pb-10 pt-8">
-        <div className="mx-auto max-w-6xl">
-          <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-foreground/30">
-            Real results — unedited
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {/* Earnings */}
-            <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
-              <p className="font-display text-2xl font-bold text-accent">$5K</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">earned in 1 week</p>
-            </div>
-
-            {/* Views */}
-            <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
-              <p className="font-display text-2xl font-bold text-foreground">10M+</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">views from 2 videos</p>
-            </div>
-
-            {/* Brand deals */}
-            <div className="hidden rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 backdrop-blur-sm sm:block">
-              <p className="font-display text-2xl font-bold text-foreground">3</p>
-              <p className="mt-0.5 text-[11px] text-foreground/35">brand deals — $5K+</p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

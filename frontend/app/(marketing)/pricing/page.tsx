@@ -16,7 +16,7 @@ const inside = [
   {
     num: "01",
     title: "The AI skeleton video system",
-    body: "The exact prompting workflow behind [X]M+ views — which AI tools, which models, which settings. Includes the full prompt library so you can generate a polished video in under an hour.",
+    body: "The exact prompting workflow behind 10M+ views — which AI tools, which models, which settings. Includes the full prompt library so you can generate a polished video in under an hour.",
   },
   {
     num: "02",
@@ -35,8 +35,8 @@ const inside = [
   },
   {
     num: "05",
-    title: "Violation avoidance guide",
-    body: "TikTok's content policies have traps that shadowban or kill accounts — specific words, frames, and patterns that trigger flags. The complete list of what to avoid and exactly why each one gets flagged.",
+    title: "Violation avoidance + appeals that win",
+    body: "TikTok's content policies have traps that shadowban or kill accounts — specific words, frames, and patterns that trigger flags. The complete list of what to avoid, plus the exact appeal process used to reverse strikes and reinstate restricted content.",
   },
   {
     num: "06",
@@ -58,11 +58,6 @@ const inside = [
     title: "Analytics & iteration system",
     body: "Which TikTok Shop metrics actually predict sales — hint: not just views. How to read the dashboard, find what's working, cut what isn't, and systematically double down on winners.",
   },
-  {
-    num: "10",
-    title: "Tools, voices & audio library",
-    body: "The complete list of AI voice tools, trending audio sources, and royalty-free sound libraries used in every video. Plug-and-play references, updated with every future guide drop.",
-  },
 ];
 
 const founders = [
@@ -71,9 +66,8 @@ const founders = [
   "Word-for-word scripts and content templates",
   "Violation avoidance guide (keep your account safe)",
   "Conversion rate + retainer deal playbooks",
-  "Tools, voices, and audio reference library",
+  "Violation avoidance + appeal playbook (keep and recover your account)",
   "Lifetime updates as the system evolves",
-  "Direct line to the creator",
 ];
 
 const { founderPrice, fullPrice, spotsRemaining, spotsTotal, countdownEnd } =
@@ -107,12 +101,20 @@ export default function PricingPage() {
         <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
           Get the exact system behind
           <br className="hidden sm:block" />
-          <span className="text-accent">[X]M+ views and $[X]K.</span>
+          <span className="text-accent">10M+ views and $5K in a week.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Every guide, script, and template from a top TikTok Shop creator —
-          the same system that generated [X]M+ views in [X] days and $[X]K in
-          [X] weeks from just [X] AI skeleton videos.
+          Every guide, script, and template from{" "}
+          <a
+            href={siteConfig.tiktokUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            {siteConfig.tiktokHandle}
+          </a>{" "}
+          — the exact system behind 10M+ views and $5K in one week from just 2
+          AI skeleton videos.
         </p>
       </div>
 

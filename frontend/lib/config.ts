@@ -8,11 +8,11 @@ export const siteConfig = {
   github: "https://github.com/adequatej/tiktok-saas",
 
   // TikTok creator profile — update before launch
-  tiktokHandle: "@yourhandle",
-  tiktokUrl: "https://www.tiktok.com/@yourhandle",
+  tiktokHandle: "@billyexplains",
+  tiktokUrl: "https://www.tiktok.com/@billyexplains",
 
   // Most viral video — used on the pricing page proof section
-  proofVideoUrl: "https://www.tiktok.com/@yourhandle/video/0000000000000000000",
+  proofVideoUrl: "https://www.tiktok.com/@billyexplains/video/0000000000000000000",
   proofVideoViews: "[X]M",
 } as const;
 
@@ -32,6 +32,6 @@ export const footerLinks = {
     { href: "/contact", label: "Contact" },
   ],
   social: [
-    { href: "https://www.tiktok.com/@yourhandle", label: "TikTok", external: true },
+    { href: "https://www.tiktok.com/@billyexplains", label: "TikTok", external: true },
   ],
 } as const;

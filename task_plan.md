@@ -28,7 +28,7 @@ Lean, fastest-to-deploy stack. No separate backend — everything in Next.js + S
 - [x] Step 1.6: Supabase schema + migrations + client wrappers (2b93315)
 - [ ] Step 1.7: Clerk auth — proxy.ts middleware + webhook user sync (staged, not committed)
 - [ ] Step 1.8: Sentry (frontend error tracking)
-- [ ] Step 1.9: Vercel deploy
+- [ ] Step 1.9: V   ercel deploy
 - [ ] Step 1.10: Stripe checkout + entitlement webhook (route handler)
 - [ ] Step 1.11: Resend transactional email (route handler)
 - [ ] Step 1.12: GitHub Actions CI (lint/typecheck/tests)
