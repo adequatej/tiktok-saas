@@ -11,9 +11,17 @@ export const siteConfig = {
   tiktokHandle: "@billyexplains",
   tiktokUrl: "https://www.tiktok.com/@billyexplains",
 
-  // Most viral video — used on the pricing page proof section
-  proofVideoUrl: "https://www.tiktok.com/@billyexplains/video/0000000000000000000",
-  proofVideoViews: "[X]M",
+  // Viral videos — used on the pricing page proof section
+  proofVideos: [
+    {
+      url: "https://www.tiktok.com/@billyexplains/video/7636126479507574029",
+      label: "Video 1",
+    },
+    {
+      url: "https://www.tiktok.com/@billyexplains/video/7643934364836941086",
+      label: "Video 2",
+    },
+  ],
 } as const;
 
 export const navLinks = [

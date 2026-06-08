@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Check, Play } from "lucide-react";
 import { siteConfig } from "@/lib/config";
@@ -172,73 +171,59 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Proof — earnings + video */}
+      {/* Proof — viral videos */}
       <div className="mt-24">
         <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           The receipts
         </p>
         <h2 className="text-center font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-          Real numbers. Unedited.
+          10M+ views. See for yourself.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
-          Not estimated revenue or best-case projections — the actual TikTok
-          Shop Studio dashboard and the video that started it.
+          These are the two videos. Click either one and watch — then
+          decide if you want to know exactly how they were made.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {/* Earnings screenshot */}
-          <div className="overflow-hidden rounded-2xl border border-border/50 bg-card">
-            <div className="relative aspect-video w-full overflow-hidden bg-secondary/40">
-              <Image
-                src="/images/proof-earnings.jpg"
-                alt="TikTok Shop Studio earnings dashboard — 1 week"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
-            </div>
-            <div className="p-5">
-              <p className="text-sm font-semibold text-foreground">
-                TikTok Shop Studio
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                1 week of earnings — unedited screenshot
-              </p>
-            </div>
-          </div>
-
-          {/* Viral video card */}
-          <a
-            href={siteConfig.proofVideoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group overflow-hidden rounded-2xl border border-border/50 bg-card transition hover:border-accent/40"
-          >
-            <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-secondary/40">
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,158,11,0.12) 0%, transparent 70%)",
-                }}
-              />
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-accent transition group-hover:bg-amber-400">
-                <Play className="ml-0.5 size-5 text-accent-foreground" fill="currentColor" />
+          {siteConfig.proofVideos.map((video, i) => (
+            <a
+              key={video.url}
+              href={video.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-2xl border border-border/50 bg-card transition-colors hover:border-accent/40"
+            >
+              <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-[#0f0d0b]">
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,158,11,0.10) 0%, transparent 70%)",
+                  }}
+                />
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-accent transition-colors group-hover:bg-amber-400">
+                  <Play className="ml-0.5 size-5 text-accent-foreground" fill="currentColor" />
+                </div>
+                <div className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/70 backdrop-blur-sm">
+                  Video {i + 1}
+                </div>
               </div>
-              <div className="absolute bottom-3 left-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                {siteConfig.proofVideoViews} views
+              <div className="flex items-center justify-between p-5">
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    Watch on TikTok
+                  </p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    @billyexplains
+                  </p>
+                </div>
+                <span className="text-xs text-accent/70 transition-colors group-hover:text-accent">
+                  Open ↗
+                </span>
               </div>
-            </div>
-            <div className="p-5">
-              <p className="text-sm font-semibold text-foreground">
-                Most viral video
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Watch on TikTok ↗
-              </p>
-            </div>
-          </a>
+            </a>
+          ))}
         </div>
       </div>
 
