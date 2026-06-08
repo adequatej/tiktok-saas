@@ -75,7 +75,7 @@ const { founderPrice, fullPrice, spotsRemaining, spotsTotal, countdownEnd } =
 
 export default function PricingPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-24">
+    <div className="mx-auto max-w-5xl px-6 pb-24 pt-12">
       {/* Urgency bar */}
       <div className="mb-16 flex flex-col items-center gap-5 rounded-2xl border border-accent/20 bg-accent/5 px-8 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
         <div>
@@ -239,58 +239,6 @@ export default function PricingPage() {
               </p>
             </div>
           </a>
-        </div>
-      </div>
-
-      {/* Retainer deal email proof */}
-      <div className="mt-20">
-        <div className="rounded-2xl border border-border/40 bg-card/50 p-8 sm:p-10">
-          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent/70">
-                Guide 08 — How to land retainer deals
-              </p>
-              <h3 className="mt-2 font-display text-xl font-semibold tracking-tight sm:text-2xl">
-                Brands reached out. Here&apos;s what that looks like.
-              </h3>
-              <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                The bundle includes the exact outreach template and pitch
-                structure used to land these. Real emails, real clients.
-              </p>
-            </div>
-          </div>
-
-          {/* Email screenshot grid */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-xl border border-border/50 bg-background">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/30">
-                <Image
-                  src="/images/email-proof-1.jpg"
-                  alt="Brand outreach email — retainer deal"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-xl border border-border/50 bg-background">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/30">
-                <Image
-                  src="/images/email-proof-2.jpg"
-                  alt="Brand outreach email — retainer deal"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            The template that gets replies like these is in{" "}
-            <span className="font-medium text-foreground">Guide 08</span>{" "}
-            — included in the bundle.
-          </p>
         </div>
       </div>
 

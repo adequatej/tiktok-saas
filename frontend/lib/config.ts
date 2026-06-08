@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Earnflow AI",
-  tagline: "AI-powered income streams for builders.",
+  name: "Billy Explains",
+  tagline: "TikTok Shop systems that actually work.",
   description:
-    "Guides, playbooks, and tools for building durable revenue online. No side-hustle filler — just signal.",
+    "Guides, scripts, and systems from a top TikTok Shop creator. Real numbers, no filler.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  twitter: "@earnflow",
+  twitter: "@billyexplains",
   github: "https://github.com/adequatej/tiktok-saas",
 
   // TikTok creator profile — update before launch

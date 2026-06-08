@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
@@ -9,31 +11,31 @@ const steps = ["Film", "Edit", "Post"];
 const cards = [
   {
     number: "01",
-    tag: "The System",
-    headline: "A filming workflow that actually scales",
-    body: "Step-by-step guides for setup, recording, and editing AI skeleton videos — the exact process behind a 5M+ view upload.",
+    tag: "Make Money",
+    headline: "Turn short videos into real income.",
+    body: "The exact filming and editing workflow I used to make $5K in one week — no fancy gear, no guesswork, just the system.",
     visual: "flow",
   },
   {
     number: "02",
-    tag: "The Scripts",
-    headline: "Copy-paste hooks that stop the scroll",
-    body: "First-line hooks, CTAs, and content frameworks taken directly from videos that converted.",
+    tag: "Go Viral",
+    headline: "Hook them in the first second.",
+    body: "Copy-paste first lines, AI skeleton scripts, and CTAs pulled directly from videos that hit 5M+ views.",
     visual: "hook",
   },
   {
     number: "03",
-    tag: "The Proof",
-    headline: "Every technique tied to real numbers",
-    body: "No vague advice. Every guide comes with screenshots and stats you can verify yourself.",
+    tag: "Land Brand Deals",
+    headline: "Get brands to pay you.",
+    body: "The outreach templates and pitch scripts behind 3 paid brand deals — totalling $5K+ — ready to copy and send.",
     visual: "stats",
   },
 ] as const;
 
 const proofStats = [
-  { value: "$5K", label: "1 week" },
-  { value: "10M+", label: "views" },
   { value: "3", label: "brand deals" },
+  { value: "$5K+", label: "deal total" },
+  { value: "0", label: "cold calls" },
 ];
 
 export function ValueProps() {
@@ -61,6 +63,7 @@ export function ValueProps() {
         {/* Cards */}
         <div className="grid gap-4 sm:grid-cols-3">
           {cards.map((card, i) => (
+
             <motion.div
               key={card.number}
               initial={{ opacity: 0, y: 24 }}
@@ -144,6 +147,29 @@ export function ValueProps() {
             </motion.div>
           ))}
         </div>
+
+        {/* And more */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.24, duration: 0.6, ease: EASE }}
+          className="mt-4 flex flex-col gap-4 rounded-2xl border border-border/30 bg-card/40 px-6 py-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="font-display text-base font-semibold text-foreground">And a lot more.</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Brand deal templates, content calendars, TikTok Shop setup walkthroughs, and more.
+            </p>
+          </div>
+          <Link
+            href="/pricing"
+            className="group inline-flex h-11 shrink-0 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
+          >
+            See everything included
+            <ArrowRight className="ml-2 size-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

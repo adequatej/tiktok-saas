@@ -31,10 +31,10 @@ export default function ContactPage() {
               Email
             </p>
             <a
-              href="mailto:hi@earnflow.ai"
+              href="mailto:hi@billyexplains.com"
               className="mt-1 block font-display text-xl font-semibold tracking-tight text-foreground transition hover:text-accent"
             >
-              hi@earnflow.ai
+              hi@billyexplains.com
             </a>
           </div>
         </div>

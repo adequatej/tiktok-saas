@@ -1,101 +1,81 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  },
-});
+const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
 
 export function HomeProof() {
   return (
-    <section className="pb-8 pt-4">
+    <section className="py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-stretch">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-12"
+        >
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.22em] text-accent/70">
+            Proof
+          </p>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Not claims.
+            <br />
+            <span className="text-muted-foreground/60">Actual results.</span>
+          </h2>
+        </motion.div>
+
+        {/* Screenshot cards */}
+        <div className="grid gap-4 sm:grid-cols-2">
           {/* Earnings screenshot */}
           <motion.div
-            variants={fadeUp(0)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="w-full overflow-hidden rounded-2xl border border-border/50 bg-card sm:max-w-sm"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: EASE }}
+            className="overflow-hidden rounded-2xl border border-border/50 bg-card"
           >
-            <div className="w-full overflow-hidden bg-secondary/40">
+            <div className="flex max-h-[420px] items-center justify-center overflow-hidden bg-secondary/30 p-4">
               <Image
                 src="/images/proof-earnings.jpg"
                 alt="TikTok Shop Studio — 1 week earnings"
                 width={800}
                 height={800}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, 384px"
+                className="h-auto max-h-[400px] w-auto max-w-full object-contain"
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="px-5 py-4">
-              <p className="text-xs font-medium text-foreground">
-                TikTok Shop Studio
-              </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                1 week of sales — unedited
-              </p>
+            <div className="border-t border-border/40 px-5 py-4">
+              <p className="text-sm font-medium text-foreground">TikTok Shop Studio dashboard</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">$5K in one week — unedited screenshot</p>
             </div>
           </motion.div>
 
-          {/* Right side */}
-          <div className="flex flex-1 flex-col justify-between gap-6">
-            <motion.div
-              variants={fadeUp(0.08)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="rounded-2xl border border-border/50 bg-card p-6"
-            >
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent/70">
-                Not claims. Proof.
-              </p>
-              <p className="mt-3 font-display text-lg font-semibold leading-snug tracking-tight sm:text-xl">
-                Every technique has a result tied to it. Views, sales,
-                and brand deals you can verify.
-              </p>
-              <Link
-                href="/pricing"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition hover:text-amber-400"
-              >
-                See the full receipts
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp(0.16)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="overflow-hidden rounded-2xl border border-border/50 bg-card"
-            >
-              <div className="w-full overflow-hidden bg-secondary/40">
-                <Image
-                  src="/images/email-proof-1.jpg"
-                  alt="Brand retainer deal email"
-                  width={1200}
-                  height={1200}
-                  className="h-auto w-full"
-                  sizes="(max-width: 640px) 100vw, 640px"
-                />
-              </div>
-              <div className="px-5 py-4">
-                <p className="text-xs font-medium text-foreground">
-                  Brands reach out. The bundle includes the exact template.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          {/* Brand deal */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: 0.1, duration: 0.6, ease: EASE }}
+            className="overflow-hidden rounded-2xl border border-border/50 bg-card"
+          >
+            <div className="flex max-h-[420px] items-center justify-center overflow-hidden bg-secondary/30 p-4">
+              <Image
+                src="/images/email-proof-1.jpg"
+                alt="Brand retainer deal email"
+                width={1200}
+                height={1200}
+                className="h-auto max-h-[400px] w-auto max-w-full object-contain"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+            <div className="border-t border-border/40 px-5 py-4">
+              <p className="text-sm font-medium text-foreground">Brand retainer deal</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">3 deals landed — $5K+ total. The exact outreach template is inside.</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

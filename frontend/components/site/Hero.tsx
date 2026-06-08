@@ -39,23 +39,20 @@ export function Hero() {
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Amber glow */}
+      {/* Uniform dark overlay */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 75% at 78% 52%, rgba(232,146,10,0.10) 0%, transparent 65%)",
-        }}
+        style={{ background: "rgba(15,13,11,0.82)" }}
       />
 
-      {/* Split overlay */}
+      {/* Centered amber glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, rgba(15,13,11,0.96) 0%, rgba(15,13,11,0.92) 32%, rgba(15,13,11,0.65) 50%, rgba(15,13,11,0.22) 70%, rgba(15,13,11,0.06) 100%)",
+            "radial-gradient(ellipse 70% 60% at 50% 42%, rgba(232,146,10,0.09) 0%, transparent 70%)",
         }}
       />
 
@@ -80,83 +77,73 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative flex flex-1 flex-col">
-        {/* Headline + CTAs */}
-        <div className="px-6 pb-6 pt-20 sm:pt-24">
-          <div className="mx-auto w-full max-w-6xl">
-            <div className="max-w-[520px]">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: EASE }}
-                className="font-display font-bold leading-[0.88] tracking-[-0.03em]"
-              >
-                <span className="block text-[2.5rem] text-foreground sm:text-[3.25rem] lg:text-[4rem]">
-                  Create TikTok Shop
-                </span>
-                <span className="block text-[2.5rem] text-foreground sm:text-[3.25rem] lg:text-[4rem]">
-                  videos that
-                </span>
-                <span className="block text-[2.5rem] text-accent sm:text-[3.25rem] lg:text-[4rem]">
-                  actually sell.
-                </span>
-              </motion.h1>
+        {/* Headline + CTAs — centered */}
+        <div className="flex flex-1 flex-col items-center justify-center px-6 pb-6 pt-24 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE }}
+            className="font-display font-bold leading-[0.9] tracking-[-0.03em]"
+          >
+            <span className="block text-[2.75rem] text-foreground sm:text-[4rem] lg:text-[5.5rem]">
+              Go viral.
+            </span>
+            <span className="block text-[2.75rem] text-accent sm:text-[4rem] lg:text-[5.5rem]">
+              Get paid.
+            </span>
+          </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.7, ease: EASE }}
-                className="mt-4 max-w-[440px] text-base leading-relaxed text-foreground/55 sm:text-lg"
-              >
-                Learn how 10M+ views and $5K in one week came from
-                just 2 AI skeleton videos — and how to replicate it.
-              </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.7, ease: EASE }}
+            className="mt-5 max-w-[500px] text-base leading-relaxed text-foreground/50 sm:text-lg"
+          >
+            Everything I wish I knew when I started. AI tools, scripts, editing
+            tricks, and the exact system I used to make $5K in one week on TikTok Shop.
+          </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.7, ease: EASE }}
-                className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
-              >
-                <Link
-                  href="/guides"
-                  className="group inline-flex h-12 items-center rounded-full bg-accent pl-6 pr-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-amber-400"
-                >
-                  Read the playbook
-                  <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/15 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    <ArrowRight className="size-3.5" />
-                  </span>
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-sm font-medium text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
-                >
-                  See pricing
-                </Link>
-              </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.22, duration: 0.7, ease: EASE }}
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row"
+          >
+            <Link
+              href="/guides"
+              className="group inline-flex h-12 items-center rounded-full bg-accent pl-6 pr-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-amber-400"
+            >
+              Get the playbook
+              <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/15 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowRight className="size-3.5" />
+              </span>
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-sm font-medium text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
+            >
+              See pricing
+            </Link>
+          </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
-                className="mt-6"
-              >
-                <a
-                  href={siteConfig.tiktokUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-foreground/35 transition-colors hover:text-foreground/65"
-                >
-                  <span className="text-accent/70">{siteConfig.tiktokHandle}</span>
-                  on TikTok
-                  <ArrowUpRight className="size-3.5" />
-                </a>
-              </motion.div>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.32, duration: 0.7, ease: EASE }}
+            className="mt-6"
+          >
+            <a
+              href={siteConfig.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-foreground/30 transition-colors hover:text-foreground/60"
+            >
+              <span className="text-accent/60">{siteConfig.tiktokHandle}</span>
+              on TikTok
+              <ArrowUpRight className="size-3.5" />
+            </a>
+          </motion.div>
         </div>
-
-        {/* Pushes mock to the bottom of the viewport */}
-        <div className="flex-1" />
 
         {/* Product peek — slides up after headline settles */}
         <motion.div
@@ -185,7 +172,7 @@ export function Hero() {
                 </div>
                 <div className="flex-1">
                   <div className="mx-auto w-fit rounded-md bg-white/[0.04] px-4 py-0.5 text-[11px] text-white/20">
-                    earnflow.ai/guides
+                    billyexplains.com/guides
                   </div>
                 </div>
               </div>
