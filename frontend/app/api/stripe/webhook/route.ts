@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
 import { createServiceClient } from "@/lib/supabase/service";
+import { sendWelcomeEmail } from "@/lib/email/welcome";
 
 export async function POST(request: Request) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -49,10 +50,8 @@ export async function POST(request: Request) {
       }
 
       if (email) {
-        await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/email/welcome`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
+        await sendWelcomeEmail(email).catch((err) => {
+          console.error("Failed to send welcome email:", err);
         });
       }
       break;

@@ -1,26 +1,12 @@
-import { NextResponse } from "next/server";
 import { getResend } from "@/lib/resend";
 
-export async function POST(req: Request) {
-  const { email } = await req.json().catch(() => ({}));
-
-  if (!email || typeof email !== "string") {
-    return NextResponse.json({ error: "Email required" }, { status: 400 });
-  }
-
-  const { error } = await getResend().emails.send({
+export async function sendWelcomeEmail(email: string) {
+  return getResend().emails.send({
     from: "Billy Explains <hello@billyexplains.com>",
     to: email,
     subject: "You're in - here's where to start",
     html: buildWelcomeEmail(),
   });
-
-  if (error) {
-    console.error("Resend error:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
-  }
-
-  return NextResponse.json({ ok: true });
 }
 
 function buildWelcomeEmail(): string {
