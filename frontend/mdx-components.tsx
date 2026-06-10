@@ -57,6 +57,25 @@ const components: MDXComponents = {
   strong: ({ children }) => (
     <strong className="font-semibold text-foreground">{children}</strong>
   ),
+  table: ({ children }) => (
+    <div className="mb-5 overflow-x-auto rounded-lg border border-border/40">
+      <table className="w-full border-collapse text-left text-sm">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-white/5 text-foreground">{children}</thead>
+  ),
+  tr: ({ children }) => (
+    <tr className="border-b border-border/40 last:border-0">{children}</tr>
+  ),
+  th: ({ children }) => (
+    <th className="px-4 py-2.5 font-semibold">{children}</th>
+  ),
+  td: ({ children }) => (
+    <td className="px-4 py-2.5 text-muted-foreground">{children}</td>
+  ),
 };
 
 export function useMDXComponents(): MDXComponents {

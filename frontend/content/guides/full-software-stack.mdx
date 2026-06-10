@@ -13,15 +13,21 @@ This guide documents every tool in the production stack with the settings I actu
 
 | Stage | Tool | Cost |
 |---|---|---|
+| Script writing & prompt creation | ChatGPT Plus | $20/mo |
 | Text-to-image | MidJourney | $10/mo (Basic) |
-| Image-to-video | Kling AI | $10/mo (Standard) |
-| Editing | CapCut (Desktop) | Free |
-| Captions | CapCut auto-captions | Free |
+| Image-to-video | Kling AI | $23.99/mo (Pro, first 3 months), $32.56/mo after |
+| Editing | CapCut (Desktop) | Free for basic editing, $19.99/mo (Pro) for captions, AI tools, and other pro features |
 | Audio | ElevenLabs | $5/mo (Starter) |
 | Voiceover cleanup | Adobe Podcast Enhance | Free |
 | Analytics | TikTok Studio | Free |
 
-Total monthly cost: approximately $25. This is the entire production budget for videos that generated $5K in one week.
+Total monthly cost: roughly $78-88/mo depending on how long you've held the Kling Pro plan. This is the entire production budget for videos that generated $5K in one week.
+
+## ChatGPT Plus
+
+Used for two things: writing and iterating on scripts, and generating the prompts you'll feed into MidJourney and Kling. Plus ($20/mo) removes the message caps that interrupt a long back-and-forth session, which matters when you're rewriting a hook five or six times or refining an image prompt across several rounds.
+
+**Workflow:** Draft your script first, refine it through several rounds of feedback, then use the same conversation to generate your MidJourney and Kling prompts so the visual direction stays consistent with the script's tone.
 
 ## MidJourney
 
@@ -41,7 +47,7 @@ Total monthly cost: approximately $25. This is the entire production budget for 
 
 ## Kling AI
 
-**Plan:** Standard ($10/mo) gives you 660 credits per month. A typical video uses 8-10 generations at approximately 10 credits each, so you have budget for 6-8 full videos per month on Standard.
+**Plan:** The Standard plan doesn't carry enough credits for the volume of generations a real video needs, you'll burn through it on a single video's worth of re-rolls. Go straight to Pro ($23.99/mo for the first 3 months, $32.56/mo after). A typical video uses 8-10 generations, and Pro's credit allocation comfortably covers that with room for re-rolls.
 
 **Model:** Use Kling 1.5 or the latest available. The difference between model versions is significant : always use current.
 
@@ -61,6 +67,8 @@ Keep camera moves subtle. Aggressive camera movement combined with subject motio
 
 Use the desktop version, not mobile. The desktop version has a proper timeline editor that allows frame-level precision. Mobile editing produces clips that are noticeably lower quality at the caption and text overlay level.
 
+**Plan:** Basic timeline editing, trimming, and export are free. Auto-captions, AI tools (background removal, AI effects, smart cutout), and other Pro features require CapCut Pro at $19.99/mo. Auto-captions alone are worth the upgrade, manually timing captions for every video isn't a realistic workflow at any kind of posting frequency.
+
 **Export settings:**
 - Resolution: 1080x1920 (1080p, 9:16)
 - Frame rate: 30fps
@@ -79,7 +87,7 @@ Do not export at anything lower than 1080p. TikTok recompresses uploaded video, 
 7. Color grade (use the preset "Cinema" or "Film" as a starting point, then adjust)
 8. Export
 
-**Auto-captions:** CapCut's auto-caption feature is accurate enough to use as a base. Always review and correct before export. Wrong captions reduce credibility and can trigger content policy flags.
+**Auto-captions:** CapCut Pro's auto-caption feature is accurate enough to use as a base. Always review and correct before export. Wrong captions reduce credibility and can trigger content policy flags.
 
 ## ElevenLabs
 
@@ -120,10 +128,11 @@ The metrics that matter for iteration are covered in Guide 09. The key thing to 
 
 If you're starting from scratch, set up in this order:
 
-1. MidJourney : get your first image generation working
-2. Kling AI : animate your first test image
-3. CapCut Desktop : install and run a test edit
-4. ElevenLabs : generate a test voiceover
-5. Adobe Podcast Enhance : run that voiceover through it
+1. ChatGPT Plus : write and refine your first script
+2. MidJourney : get your first image generation working
+3. Kling AI : animate your first test image
+4. CapCut Desktop (Pro) : install and run a test edit, including auto-captions
+5. ElevenLabs : generate a test voiceover
+6. Adobe Podcast Enhance : run that voiceover through it
 
 Once you've done a full test run through the stack, you know it works. Then Guide 01 covers doing it properly.

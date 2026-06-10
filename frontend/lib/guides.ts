@@ -137,7 +137,7 @@ export const guides: Guide[] = [
     isPaid: true,
     title: "Budget-Friendly Alternatives to the Premium Tool Stack",
     description:
-      "Cheaper and free alternatives to Higgsfield, Grok, Freepik, and Runway, what you give up by switching, and how to think about the tradeoff between cost and quality.",
+      "Cheaper alternatives to the MidJourney plus Kling Pro stack, including all-in-one tools that replace two subscriptions with one, what you give up, and how to think about the tradeoff between cost and quality.",
     publishedAt: "2026-06-10",
     readingTime: "9 min read",
     category: "Tools",

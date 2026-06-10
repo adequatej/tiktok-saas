@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-const withMDX = createMDX({});
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: ["remark-gfm"],
+  },
+});
 
 export default withSentryConfig(withMDX(nextConfig), {
   silent: true,
