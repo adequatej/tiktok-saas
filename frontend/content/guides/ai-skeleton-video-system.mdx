@@ -1,0 +1,233 @@
+export const metadata = {
+  title: "The AI Skeleton Video System: Full Workflow",
+  description:
+    "The complete three-step production workflow behind 10M+ view videos: script, image scenes, and animated clips.",
+  publishedAt: "2026-05-01",
+  readingTime: "15 min read",
+  category: "AI Videos",
+};
+
+This guide is the full execution of the concept covered in the free guide. If you haven't read that one, start there. This is the workflow.
+
+Every AI skeleton video is built in three steps: write the script, generate the image scenes, animate the scenes. Each step has a JSON template below. Fill in your product details, run it through the right tool, and repeat.
+
+---
+
+## Step 1: Write the Script
+
+Before generating a single image, you need a script. The script determines how many scenes you need, what each scene shows, and what the voiceover says over it. Generating visuals first and writing the script around them produces worse videos.
+
+Feed this template to an LLM (Claude or ChatGPT) to generate your script.
+
+**Template:**
+
+```json
+{
+  "task": "Write a TikTok Shop video script",
+  "product": "",
+  "product_benefit": "",
+  "proof_point": "",
+  "hook_type": "result-based",
+  "duration_seconds": 35,
+  "tone": "direct, conversational, first-person",
+  "structure": ["hook", "bridge", "product reveal", "cta"],
+  "output_format": {
+    "script": "full word-for-word voiceover",
+    "scenes": "list each scene with: scene number, visual description, voiceover line, duration in seconds"
+  }
+}
+```
+
+**Example (posture corrector product):**
+
+```json
+{
+  "task": "Write a TikTok Shop video script",
+  "product": "posture corrector back brace",
+  "product_benefit": "fixes forward head posture and back pain within two weeks of daily use",
+  "proof_point": "I wore this every day for 14 days and my shoulder pain is gone",
+  "hook_type": "result-based",
+  "duration_seconds": 35,
+  "tone": "direct, conversational, first-person",
+  "structure": ["hook", "bridge", "product reveal", "cta"],
+  "output_format": {
+    "script": "full word-for-word voiceover",
+    "scenes": "list each scene with: scene number, visual description, voiceover line, duration in seconds"
+  }
+}
+```
+
+The LLM will return the full script plus a scene-by-scene breakdown. That breakdown tells you exactly how many T2I generations you need and what each one should show.
+
+---
+
+## Step 2: Generate Image Scenes
+
+With the scene list from Step 1, generate a still image for each scene using MidJourney. Each image becomes the source frame for one video clip.
+
+Use the `character_reference` field to maintain a consistent subject across all scenes. Set it to `null` for your first generation, then use that image's filename for every subsequent scene.
+
+**Template:**
+
+```json
+{
+  "tool": "MidJourney",
+  "scene_number": null,
+  "subject": "",
+  "action": "",
+  "environment": "",
+  "style": "cinematic editorial photography, shallow depth of field, film grain",
+  "params": "--ar 9:16 --v 6 --q 2 --style raw",
+  "character_reference": null
+}
+```
+
+Turn this into a MidJourney prompt by combining the fields in order:
+
+`[subject] [action], [environment], [style], [params] --cref [character_reference]`
+
+**Example (Scene 1 of the posture corrector video):**
+
+```json
+{
+  "tool": "MidJourney",
+  "scene_number": 1,
+  "subject": "woman in her late 20s, athletic build, white t-shirt",
+  "action": "sitting at a desk, visibly slouching, looking uncomfortable",
+  "environment": "modern home office, soft natural light from window on left",
+  "style": "cinematic editorial photography, shallow depth of field, film grain",
+  "params": "--ar 9:16 --v 6 --q 2 --style raw",
+  "character_reference": null
+}
+```
+
+Resulting MidJourney prompt:
+
+```
+woman in her late 20s, athletic build, white t-shirt, sitting at a desk,
+visibly slouching, looking uncomfortable, modern home office, soft natural light
+from window on left, cinematic editorial photography, shallow depth of field,
+film grain, --ar 9:16 --v 6 --q 2 --style raw
+```
+
+**Example (Scene 3, same character, product reveal):**
+
+```json
+{
+  "tool": "MidJourney",
+  "scene_number": 3,
+  "subject": "same woman, now sitting upright with confidence",
+  "action": "wearing a posture corrector brace over her t-shirt, relaxed and smiling",
+  "environment": "same home office, same lighting",
+  "style": "cinematic editorial photography, shallow depth of field, film grain",
+  "params": "--ar 9:16 --v 6 --q 2 --style raw",
+  "character_reference": "scene-1-output.png"
+}
+```
+
+Resulting MidJourney prompt:
+
+```
+same woman, now sitting upright with confidence, wearing a posture corrector brace
+over her t-shirt, relaxed and smiling, same home office, same lighting, cinematic
+editorial photography, shallow depth of field, film grain,
+--ar 9:16 --v 6 --q 2 --style raw --cref scene-1-output.png
+```
+
+**What to reject:** Any generation with visible text, more than two subjects, extreme face close-ups, or motion blur baked in. Regenerate rather than try to fix in post.
+
+---
+
+## Step 3: Animate Each Scene
+
+Take each approved image from Step 2 and animate it in Kling AI. Each image becomes a 5-second clip.
+
+Match the motion description to what the script says is happening in that scene. Scenes with action use more subject motion. Establishing shots use more camera motion and less subject motion.
+
+**Template:**
+
+```json
+{
+  "tool": "Kling AI",
+  "model": "kling-1.5",
+  "source_image": "",
+  "scene_number": null,
+  "subject_motion": "",
+  "camera_motion": "",
+  "intensity": 0.4,
+  "duration_seconds": 5,
+  "mode": "Standard"
+}
+```
+
+**Example (Scene 1, the slouching shot):**
+
+```json
+{
+  "tool": "Kling AI",
+  "model": "kling-1.5",
+  "source_image": "scene-1-output.png",
+  "scene_number": 1,
+  "subject_motion": "subtle shoulder shift, slight head turn downward, natural breathing",
+  "camera_motion": "slow push in",
+  "intensity": 0.35,
+  "duration_seconds": 5,
+  "mode": "Standard"
+}
+```
+
+Kling motion prompt (paste into the motion field):
+
+```
+subtle shoulder shift, slight head turn downward, natural breathing, slow camera push in
+```
+
+**Example (Scene 3, the product reveal):**
+
+```json
+{
+  "tool": "Kling AI",
+  "model": "kling-1.5",
+  "source_image": "scene-3-output.png",
+  "scene_number": 3,
+  "subject_motion": "gentle smile widening, relaxed posture, natural breathing",
+  "camera_motion": "slight pull back to reveal full posture",
+  "intensity": 0.4,
+  "duration_seconds": 5,
+  "mode": "Standard"
+}
+```
+
+Kling motion prompt:
+
+```
+gentle smile widening, relaxed posture, natural breathing, slight camera pull back
+```
+
+**Intensity guide:** 0.3 for near-static scenes where you just want life in the frame. 0.4-0.45 for normal action. 0.5+ only for high-energy scenes. Above 0.5 tends to look AI-generated.
+
+---
+
+## Putting It Together
+
+A 35-second video uses approximately 7-8 scenes. The output of the three steps:
+
+1. Script and scene list from the LLM
+2. One approved image per scene from MidJourney (generate 3-4 variations per scene, pick the best)
+3. One 5-second animated clip per scene from Kling
+
+Take the clips into CapCut, arrange in scene order, add your voiceover, captions, and music. Guide 03 covers the editing decisions in full.
+
+Generate more clips than you need. Aim for 12-15, use 7-8. The surplus gives you options when clips don't cut together cleanly.
+
+---
+
+## Common Failure Modes
+
+**Clips look AI-generated.** Use `--style raw` in MidJourney. Keep Kling intensity below 0.45. The goal is for viewers not to think about the production.
+
+**Subject looks different across scenes.** Always pass the first scene's output as `--cref` in every subsequent MidJourney generation. Without this, the subject's appearance will drift.
+
+**Motion looks jerky.** The motion prompt was too vague. Be specific about what moves and how. "Natural breathing" is better than "move naturally." "Slight head turn to the right" is better than "look around."
+
+**Good production, low completion rate.** The visual layer is right but the hook or script is wrong. The AI handles the visual. The script framework in Guide 04 handles the words.

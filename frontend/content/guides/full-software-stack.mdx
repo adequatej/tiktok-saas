@@ -1,0 +1,129 @@
+export const metadata = {
+  title: "Full Software Stack and Settings",
+  description:
+    "Every piece of software in the production chain from generation to final export, with exact settings so you skip the trial-and-error phase entirely.",
+  publishedAt: "2026-05-01",
+  readingTime: "10 min read",
+  category: "Tools",
+};
+
+This guide documents every tool in the production stack with the settings I actually use. Not recommended settings from a tutorial : the ones behind the specific videos that performed.
+
+## The Full Stack at a Glance
+
+| Stage | Tool | Cost |
+|---|---|---|
+| Text-to-image | MidJourney | $10/mo (Basic) |
+| Image-to-video | Kling AI | $10/mo (Standard) |
+| Editing | CapCut (Desktop) | Free |
+| Captions | CapCut auto-captions | Free |
+| Audio | ElevenLabs | $5/mo (Starter) |
+| Voiceover cleanup | Adobe Podcast Enhance | Free |
+| Analytics | TikTok Studio | Free |
+
+Total monthly cost: approximately $25. This is the entire production budget for videos that generated $5K in one week.
+
+## MidJourney
+
+**Plan:** Basic ($10/mo) is sufficient unless you're generating more than 200 images per month. At scale, upgrade to Standard for unlimited relaxed generations.
+
+**Version:** Always use v6 or the latest available. Earlier versions produce outputs that look noticeably less photorealistic.
+
+**Key settings:**
+- `--v 6` : current best model
+- `--q 2` : full quality, no shortcuts
+- `--ar 9:16` : TikTok native aspect ratio
+- `--style raw` : removes MidJourney's artistic interpretation, produces cleaner photorealistic output
+
+**Interface:** Use the Discord bot for prompt iteration speed. The web interface (alpha.midjourney.com) is cleaner but slower for rapid iteration.
+
+**Workflow tip:** Run 4 variations at a time with the same prompt, select the best, then use "Vary (Subtle)" to generate 4 more variations of the winner. This is faster than rewriting prompts from scratch.
+
+## Kling AI
+
+**Plan:** Standard ($10/mo) gives you 660 credits per month. A typical video uses 8-10 generations at approximately 10 credits each, so you have budget for 6-8 full videos per month on Standard.
+
+**Model:** Use Kling 1.5 or the latest available. The difference between model versions is significant : always use current.
+
+**Key settings:**
+- Duration: 5 seconds (default)
+- Motion intensity: 35-45% (the key setting most people get wrong)
+- Mode: Standard (Professional mode uses 3x credits and the quality difference is marginal for TikTok resolution)
+
+**Camera movement:** Kling supports camera motion prompting. Use subtle camera moves to add production value:
+- `slow push in` : increases perceived intimacy with subject
+- `gentle pan right` : creates a reveal effect
+- `slight tilt up` : adds scale to environments
+
+Keep camera moves subtle. Aggressive camera movement combined with subject motion looks unstable.
+
+## CapCut Desktop
+
+Use the desktop version, not mobile. The desktop version has a proper timeline editor that allows frame-level precision. Mobile editing produces clips that are noticeably lower quality at the caption and text overlay level.
+
+**Export settings:**
+- Resolution: 1080x1920 (1080p, 9:16)
+- Frame rate: 30fps
+- Format: MP4
+- Quality: Highest
+
+Do not export at anything lower than 1080p. TikTok recompresses uploaded video, and starting at a lower resolution compounds compression artifacts.
+
+**Timeline workflow:**
+1. Import all AI clips to the media panel
+2. Arrange in order on timeline
+3. Trim clips to the beat/rhythm of your audio track
+4. Add captions
+5. Add text overlays (hook text, product callouts)
+6. Add sound effects layer
+7. Color grade (use the preset "Cinema" or "Film" as a starting point, then adjust)
+8. Export
+
+**Auto-captions:** CapCut's auto-caption feature is accurate enough to use as a base. Always review and correct before export. Wrong captions reduce credibility and can trigger content policy flags.
+
+## ElevenLabs
+
+Used for any voiceover elements in the video. The AI voices are indistinguishable from human narration at TikTok's audio quality level.
+
+**Voice selection:** Use voices in the "Natural" and "Conversational" categories. Avoid voices labeled "Narrator" : they sound too formal for TikTok's feed context.
+
+**Settings:**
+- Stability: 60-70%
+- Similarity boost: 75-80%
+- Style: 0 (leave at zero unless you want exaggerated expressiveness)
+
+**Workflow:** Write your script in full, generate the voiceover, download as MP3, import into CapCut as an audio track. Adjust the clip timing to match the voiceover cadence.
+
+## Adobe Podcast Enhance
+
+Free tool at podcast.adobe.com. Upload your ElevenLabs audio or any recorded voiceover and it removes background noise and enhances clarity. The output sounds professionally recorded even if the input was mediocre.
+
+This step takes 30 seconds and noticeably improves audio quality. Run every voiceover through it before importing to CapCut.
+
+## TikTok Studio
+
+The analytics dashboard. Access at studio.tiktok.com or through the Creator Center in the app.
+
+The metrics that matter for iteration are covered in Guide 09. The key thing to know about Studio: you need at least 1,000 followers to access the full analytics panel. Before that threshold, you're working with limited data.
+
+## What You Don't Need
+
+**Screen recording software:** Not part of this workflow.
+
+**DSLR camera or lighting equipment:** Not part of this workflow.
+
+**Premiere Pro or Final Cut:** CapCut is sufficient for TikTok content and faster to use for this format.
+
+**Premium TikTok creator tools:** The built-in tools are fine. Third-party TikTok optimization tools are largely guesswork dressed as data.
+
+## Setup Order
+
+If you're starting from scratch, set up in this order:
+
+1. MidJourney : get your first image generation working
+2. Kling AI : animate your first test image
+3. CapCut Desktop : install and run a test edit
+4. ElevenLabs : generate a test voiceover
+5. Adobe Podcast Enhance : run that voiceover through it
+
+Once you've done a full test run through the stack, you know it works. Then Guide 01 covers doing it properly.

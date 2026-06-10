@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Play } from "lucide-react";
+import { ArrowRight, Check, Play } from "lucide-react";
+import { auth } from "@clerk/nextjs/server";
 import { siteConfig } from "@/lib/config";
 import { CheckoutButton } from "@/components/site/CheckoutButton";
 import { CountdownTimer } from "@/components/site/CountdownTimer";
 import { launchConfig } from "@/lib/launch.config";
+import { createServiceClient } from "@/lib/supabase/service";
 
 export const metadata: Metadata = {
   title: "Pricing — Founders Bundle",
@@ -72,7 +74,18 @@ const founders = [
 const { founderPrice, fullPrice, spotsRemaining, spotsTotal, countdownEnd } =
   launchConfig;
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const { userId } = await auth();
+  let hasPurchased = false;
+  if (userId) {
+    const supabase = createServiceClient();
+    const { data } = await supabase
+      .from("purchases")
+      .select("id")
+      .eq("clerk_user_id", userId)
+      .maybeSingle();
+    hasPurchased = !!data;
+  }
   return (
     <div className="mx-auto max-w-5xl px-6 pb-24 pt-12">
       {/* Urgency bar */}
@@ -150,7 +163,17 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <CheckoutButton />
+              {hasPurchased ? (
+                <Link
+                  href="/guides"
+                  className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-accent text-sm font-semibold text-accent-foreground transition hover:bg-amber-400"
+                >
+                  Read the guides
+                  <ArrowRight className="size-4" />
+                </Link>
+              ) : (
+                <CheckoutButton />
+              )}
             </div>
 
             {/* Right — feature list */}

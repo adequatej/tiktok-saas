@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Lock } from "lucide-react";
-import { guides } from "@/lib/guides";
+import { ArrowRight, Lock, Unlock } from "lucide-react";
+import { auth } from "@clerk/nextjs/server";
+import { freeGuides, paidGuides } from "@/lib/guides";
 import { siteConfig } from "@/lib/config";
+import { hasGuideAccess } from "@/lib/access";
+import { PurchaseSuccessBanner } from "@/components/site/PurchaseSuccessBanner";
 
 export const metadata: Metadata = {
   title: "Guides",
@@ -15,36 +18,22 @@ export const metadata: Metadata = {
   },
 };
 
-const lockedGuides = [
-  {
-    title: "The AI Skeleton Video Prompt Library",
-    description:
-      "The exact prompts, AI tools, and production settings behind [X]M+ view videos. Full workflow from concept to posted.",
-    category: "AI Videos",
-  },
-  {
-    title: "Editing for Virality: Watch Time, Pacing & Sound",
-    description:
-      "Frame-by-frame breakdown of what drives completion rate — the editing decisions separating a 10K view video from a 10M view video.",
-    category: "Editing",
-  },
-  {
-    title: "Violation Avoidance: What Gets Accounts Flagged",
-    description:
-      "The specific words, frames, and patterns that trigger TikTok's content policy. The complete list with explanations.",
-    category: "TikTok Policy",
-  },
-  {
-    title: "The Retainer Deal Template",
-    description:
-      "The exact outreach message, pitch structure, and pricing framework used to sign brand clients from TikTok content.",
-    category: "Brand Deals",
-  },
-];
 
-export default function GuidesPage() {
+export default async function GuidesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ checkout?: string }>;
+}) {
+  const { checkout } = await searchParams;
+  const justPurchased = checkout === "success";
+
+  const { userId } = await auth();
+  const hasPurchased = await hasGuideAccess(userId);
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-20">
+      {justPurchased && <PurchaseSuccessBanner />}
+
       <header className="mb-14">
         <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-accent/70">
           Guides
@@ -68,7 +57,7 @@ export default function GuidesPage() {
       </div>
 
       <div className="space-y-3">
-        {guides.map((guide) => (
+        {freeGuides.map((guide) => (
           <Link
             key={guide.slug}
             href={`/guides/${guide.slug}`}
@@ -95,26 +84,56 @@ export default function GuidesPage() {
         ))}
       </div>
 
-      {/* Locked premium guides */}
+      {/* Premium guides — locked or unlocked depending on purchase */}
       <div className="mb-3 mt-10 flex items-center gap-3">
         <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          Founders Bundle
+          {hasPurchased ? "Your Bundle" : "Founders Bundle"}
         </p>
         <div className="h-px flex-1 bg-border/40" />
+        {hasPurchased && (
+          <span className="flex items-center gap-1 text-[10px] font-medium uppercase tracking-widest text-accent">
+            <Unlock className="size-3" />
+            Unlocked
+          </span>
+        )}
       </div>
 
       <div className="space-y-3">
-        {lockedGuides.map((guide) => (
+        {paidGuides.map((guide) => (
+          hasPurchased ? (
+            <Link
+              key={guide.slug}
+              href={`/guides/${guide.slug}`}
+              className="group flex items-start justify-between rounded-2xl border border-accent/20 bg-card p-6 transition hover:border-accent/40"
+            >
+              <div className="flex-1 pr-6">
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                    {guide.category}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-accent/70">
+                    <Unlock className="size-3" />
+                    Included
+                  </span>
+                </div>
+                <h2 className="font-display mb-2 text-lg font-semibold leading-snug tracking-tight text-foreground transition group-hover:text-accent sm:text-xl">
+                  {guide.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {guide.description}
+                </p>
+              </div>
+              <ArrowRight className="mt-1 size-5 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-accent" />
+            </Link>
+          ) : (
           <div
-            key={guide.title}
+            key={guide.slug}
             className="relative flex items-start justify-between overflow-hidden rounded-2xl border border-border/30 bg-card/50 p-6"
           >
-            {/* Subtle overlay to signal locked */}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 bg-background/30"
             />
-
             <div className="relative flex-1 pr-6">
               <div className="mb-3 flex items-center gap-3">
                 <span className="rounded-full bg-accent/8 px-2.5 py-0.5 text-xs font-medium text-accent/60">
@@ -132,29 +151,40 @@ export default function GuidesPage() {
                 {guide.description}
               </p>
             </div>
-
             <Lock className="relative mt-1 size-5 shrink-0 text-muted-foreground/25" />
           </div>
+          )
         ))}
       </div>
 
-      {/* Bundle CTA */}
-      <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 px-8 py-7 text-center">
-        <p className="font-display text-lg font-semibold tracking-tight">
-          Unlock all {lockedGuides.length + guides.length} guides
-        </p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The Founders Bundle includes every guide above plus scripts,
-          templates, and the full production system.
-        </p>
-        <Link
-          href="/pricing"
-          className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition hover:bg-amber-400"
-        >
-          Get the Founders Bundle
-          <ArrowRight className="size-4" />
-        </Link>
-      </div>
+      {/* CTA — hidden for buyers */}
+      {hasPurchased ? (
+        <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 px-8 py-7 text-center">
+          <p className="font-display text-lg font-semibold tracking-tight text-accent">
+            You have full access.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            All guides above are yours — including every future drop.
+          </p>
+        </div>
+      ) : (
+        <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 px-8 py-7 text-center">
+          <p className="font-display text-lg font-semibold tracking-tight">
+            Unlock all {paidGuides.length + freeGuides.length} guides
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            The Founders Bundle includes every guide above plus scripts,
+            templates, and the full production system.
+          </p>
+          <Link
+            href="/pricing"
+            className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition hover:bg-amber-400"
+          >
+            Get the Founders Bundle
+            <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      )}
     </main>
   );
 }

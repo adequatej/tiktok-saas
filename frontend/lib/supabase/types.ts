@@ -72,6 +72,24 @@ export type Database = {
         };
         Relationships: [];
       };
+      purchases: {
+        Row: {
+          id: string;
+          clerk_user_id: string;
+          stripe_session_id: string;
+          email: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          clerk_user_id: string;
+          stripe_session_id: string;
+          email: string;
+          created_at?: string;
+        };
+        Update: Record<string, never>;
+        Relationships: [];
+      };
       affiliate_clicks: {
         Row: {
           id: string;
