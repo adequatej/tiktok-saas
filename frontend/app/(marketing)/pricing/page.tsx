@@ -59,15 +59,21 @@ const inside = [
     title: "Analytics & iteration system",
     body: "Which TikTok Shop metrics actually predict sales - hint: not just views. How to read the dashboard, find what's working, cut what isn't, and systematically double down on winners.",
   },
+  {
+    num: "10",
+    title: "Budget tool alternatives",
+    body: "Free and low-cost swaps for the premium AI tool stack, what you give up by switching, and how to decide whether the tradeoff is worth it before you've made any money back.",
+  },
 ];
 
 const founders = [
   "All 10 guides - today and every future drop",
   "AI prompting library + full software stack",
   "Word-for-word scripts and content templates",
-  "Violation avoidance guide (keep your account safe)",
-  "Conversion rate + retainer deal playbooks",
   "Violation avoidance + appeal playbook (keep and recover your account)",
+  "Conversion rate + product selection playbooks",
+  "Retainer deal pricing, outreach, and negotiation templates",
+  "Budget alternatives if you're not ready for the premium stack",
   "Lifetime updates as the system evolves",
 ];
 
