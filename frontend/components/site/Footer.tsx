@@ -15,7 +15,8 @@ export function Footer() {
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The exact TikTok Shop video system behind 10M+ views and $5K
-              in one week — guides, scripts, and playbooks from a top creator.
+              in one week from two videos. Guides, scripts, and playbooks from
+              a top creator.
             </p>
             <a
               href={siteConfig.tiktokUrl}

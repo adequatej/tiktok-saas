@@ -18,7 +18,7 @@ export default function ContactPage() {
       </h1>
       <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
         We read everything. We reply to most of it. The fastest path is email
-        — there&apos;s no contact form trying to qualify you.
+        - there&apos;s no contact form trying to qualify you.
       </p>
 
       <div className="mt-12 rounded-2xl border border-border bg-card p-8">
@@ -31,10 +31,10 @@ export default function ContactPage() {
               Email
             </p>
             <a
-              href="mailto:hi@billyexplains.com"
+              href="mailto:peakmomentshub@gmail.com"
               className="mt-1 block font-display text-xl font-semibold tracking-tight text-foreground transition hover:text-accent"
             >
-              hi@billyexplains.com
+              peakmomentshub@gmail.com
             </a>
           </div>
         </div>

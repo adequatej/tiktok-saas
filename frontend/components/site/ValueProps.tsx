@@ -13,7 +13,7 @@ const cards = [
     number: "01",
     tag: "Make Money",
     headline: "Turn short videos into real income.",
-    body: "The exact filming and editing workflow I used to make $5K in one week — no fancy gear, no guesswork, just the system.",
+    body: "The exact filming and editing workflow I used to make $5K in one week from two videos. No fancy gear, no guesswork, just the system.",
     visual: "flow",
   },
   {
@@ -27,7 +27,7 @@ const cards = [
     number: "03",
     tag: "Land Brand Deals",
     headline: "Get brands to pay you.",
-    body: "The outreach templates and pitch scripts behind 3 paid brand deals — totalling $5K+ — ready to copy and send.",
+    body: "The outreach templates and pitch scripts behind 3 paid brand deals - totalling $5K+ - ready to copy and send.",
     visual: "stats",
   },
 ] as const;
@@ -93,7 +93,7 @@ export function ValueProps() {
                 {card.body}
               </p>
 
-              {/* Visual — pushed to bottom */}
+              {/* Visual - pushed to bottom */}
               <div className="mt-auto pt-8">
                 {card.visual === "flow" && (
                   <div className="flex flex-wrap items-center gap-2">

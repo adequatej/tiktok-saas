@@ -10,11 +10,11 @@ import { PurchaseSuccessBanner } from "@/components/site/PurchaseSuccessBanner";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Free TikTok Shop playbooks — AI skeleton videos, product selection, hook writing. The full system is in the Founders Bundle.",
+    "Free TikTok Shop playbooks - AI skeleton videos, product selection, hook writing. The full system is in the Founders Bundle.",
   openGraph: {
-    title: `Guides — ${siteConfig.name}`,
+    title: `Guides - ${siteConfig.name}`,
     description:
-      "Free TikTok Shop playbooks — AI skeleton videos, product selection, hook writing.",
+      "Free TikTok Shop playbooks - AI skeleton videos, product selection, hook writing.",
   },
 };
 
@@ -42,7 +42,7 @@ export default async function GuidesPage({
           The playbooks behind the numbers.
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Free guides on the TikTok Shop video system — what works, why it
+          Free guides on the TikTok Shop video system - what works, why it
           works, and where most creators go wrong. The complete execution is in
           the bundle.
         </p>
@@ -84,7 +84,7 @@ export default async function GuidesPage({
         ))}
       </div>
 
-      {/* Premium guides — locked or unlocked depending on purchase */}
+      {/* Premium guides - locked or unlocked depending on purchase */}
       <div className="mb-3 mt-10 flex items-center gap-3">
         <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
           {hasPurchased ? "Your Bundle" : "Founders Bundle"}
@@ -157,14 +157,14 @@ export default async function GuidesPage({
         ))}
       </div>
 
-      {/* CTA — hidden for buyers */}
+      {/* CTA - hidden for buyers */}
       {hasPurchased ? (
         <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 px-8 py-7 text-center">
           <p className="font-display text-lg font-semibold tracking-tight text-accent">
             You have full access.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            All guides above are yours — including every future drop.
+            All guides above are yours - including every future drop.
           </p>
         </div>
       ) : (

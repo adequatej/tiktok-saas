@@ -40,7 +40,7 @@ export function HomeProof() {
             <div className="flex max-h-[420px] items-center justify-center overflow-hidden bg-secondary/30 p-4">
               <Image
                 src="/images/proof-earnings.jpg"
-                alt="TikTok Shop Studio — 1 week earnings"
+                alt="TikTok Shop Studio - 1 week earnings"
                 width={800}
                 height={800}
                 className="h-auto max-h-[400px] w-auto max-w-full object-contain"
@@ -49,7 +49,7 @@ export function HomeProof() {
             </div>
             <div className="border-t border-border/40 px-5 py-4">
               <p className="text-sm font-medium text-foreground">TikTok Shop Studio dashboard</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">$5K in one week — unedited screenshot</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">$5K in one week - unedited screenshot</p>
             </div>
           </motion.div>
 
@@ -73,7 +73,7 @@ export function HomeProof() {
             </div>
             <div className="border-t border-border/40 px-5 py-4">
               <p className="text-sm font-medium text-foreground">Brand retainer deal</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">3 deals landed — $5K+ total. The exact outreach template is inside.</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">3 deals landed - $5K+ total. The exact outreach template is inside.</p>
             </div>
           </motion.div>
         </div>

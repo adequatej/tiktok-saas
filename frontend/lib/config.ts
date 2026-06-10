@@ -7,11 +7,11 @@ export const siteConfig = {
   twitter: "@billyexplains",
   github: "https://github.com/adequatej/tiktok-saas",
 
-  // TikTok creator profile — update before launch
+  // TikTok creator profile - update before launch
   tiktokHandle: "@billyexplains",
   tiktokUrl: "https://www.tiktok.com/@billyexplains",
 
-  // Viral videos — used on the pricing page proof section
+  // Viral videos - used on the pricing page proof section
   proofVideos: [
     {
       url: "https://www.tiktok.com/@billyexplains/video/7636126479507574029",

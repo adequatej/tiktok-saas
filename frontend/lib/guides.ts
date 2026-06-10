@@ -47,7 +47,7 @@ export const guides: Guide[] = [
     isPaid: true,
     title: "The AI Skeleton Video System: Full Workflow",
     description:
-      "The complete production workflow — which AI tools, which models, which settings, and the exact prompt structure behind 10M+ view videos.",
+      "The complete production workflow - which AI tools, which models, which settings, and the exact prompt structure behind 10M+ view videos.",
     publishedAt: "2026-05-01",
     readingTime: "15 min read",
     category: "AI Videos",
@@ -67,7 +67,7 @@ export const guides: Guide[] = [
     isPaid: true,
     title: "Editing for Virality: Watch Time, Pacing, and Sound",
     description:
-      "The editing decisions that drive completion rate — pacing, caption timing, sound layering, and text overlays pulled from videos that hit millions of views.",
+      "The editing decisions that drive completion rate - pacing, caption timing, sound layering, and text overlays pulled from videos that hit millions of views.",
     publishedAt: "2026-05-01",
     readingTime: "12 min read",
     category: "Editing",
@@ -107,7 +107,7 @@ export const guides: Guide[] = [
     isPaid: true,
     title: "The Product Selection Playbook",
     description:
-      "The full criteria for picking products before you film — all five filters, margin analysis, demand signals, and worked examples from products that hit.",
+      "The full criteria for picking products before you film - all five filters, margin analysis, demand signals, and worked examples from products that hit.",
     publishedAt: "2026-05-01",
     readingTime: "13 min read",
     category: "Product Selection",
@@ -131,6 +131,16 @@ export const guides: Guide[] = [
     publishedAt: "2026-05-01",
     readingTime: "11 min read",
     category: "Analytics",
+  },
+  {
+    slug: "budget-tool-alternatives",
+    isPaid: true,
+    title: "Budget-Friendly Alternatives to the Premium Tool Stack",
+    description:
+      "Cheaper and free alternatives to Higgsfield, Grok, Freepik, and Runway, what you give up by switching, and how to think about the tradeoff between cost and quality.",
+    publishedAt: "2026-06-10",
+    readingTime: "9 min read",
+    category: "Tools",
   },
 ];
 

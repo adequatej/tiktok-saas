@@ -1,5 +1,5 @@
 // Edit these values to reset the launch window.
-// After changing, push to main — Vercel redeploys in ~30s.
+// After changing, push to main - Vercel redeploys in ~30s.
 export const launchConfig = {
   // Set this to the deadline for the $497 founders price.
   // Must be a valid ISO 8601 string (UTC).

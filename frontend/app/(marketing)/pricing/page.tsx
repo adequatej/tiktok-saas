@@ -9,15 +9,15 @@ import { launchConfig } from "@/lib/launch.config";
 import { createServiceClient } from "@/lib/supabase/service";
 
 export const metadata: Metadata = {
-  title: "Pricing — Founders Bundle",
-  description: `Get the exact TikTok Shop video system behind [X]M+ views and $[X]K in [X] weeks. ${siteConfig.name} Founders Bundle — $${launchConfig.founderPrice}, one-time.`,
+  title: "Pricing - Founders Bundle",
+  description: `Get the exact TikTok Shop video system behind [X]M+ views and $[X]K in [X] weeks. ${siteConfig.name} Founders Bundle - $${launchConfig.founderPrice}, one-time.`,
 };
 
 const inside = [
   {
     num: "01",
     title: "The AI skeleton video system",
-    body: "The exact prompting workflow behind 10M+ views — which AI tools, which models, which settings. Includes the full prompt library so you can generate a polished video in under an hour.",
+    body: "The exact prompting workflow behind 10M+ views - which AI tools, which models, which settings. Includes the full prompt library so you can generate a polished video in under an hour.",
   },
   {
     num: "02",
@@ -27,7 +27,7 @@ const inside = [
   {
     num: "03",
     title: "Editing techniques for virality",
-    body: "Pacing, hook structure, sound layering, caption timing, and text overlay decisions — pulled frame-by-frame from videos that hit millions of views. What drives watch time and what kills it.",
+    body: "Pacing, hook structure, sound layering, caption timing, and text overlay decisions - pulled frame-by-frame from videos that hit millions of views. What drives watch time and what kills it.",
   },
   {
     num: "04",
@@ -37,7 +37,7 @@ const inside = [
   {
     num: "05",
     title: "Violation avoidance + appeals that win",
-    body: "TikTok's content policies have traps that shadowban or kill accounts — specific words, frames, and patterns that trigger flags. The complete list of what to avoid, plus the exact appeal process used to reverse strikes and reinstate restricted content.",
+    body: "TikTok's content policies have traps that shadowban or kill accounts - specific words, frames, and patterns that trigger flags. The complete list of what to avoid, plus the exact appeal process used to reverse strikes and reinstate restricted content.",
   },
   {
     num: "06",
@@ -47,7 +47,7 @@ const inside = [
   {
     num: "07",
     title: "Product selection playbook",
-    body: "The criteria for picking products before you film — what converts on TikTok Shop, what looks good AI-generated, what margin supports the effort. Worked examples from products that hit.",
+    body: "The criteria for picking products before you film - what converts on TikTok Shop, what looks good AI-generated, what margin supports the effort. Worked examples from products that hit.",
   },
   {
     num: "08",
@@ -57,12 +57,12 @@ const inside = [
   {
     num: "09",
     title: "Analytics & iteration system",
-    body: "Which TikTok Shop metrics actually predict sales — hint: not just views. How to read the dashboard, find what's working, cut what isn't, and systematically double down on winners.",
+    body: "Which TikTok Shop metrics actually predict sales - hint: not just views. How to read the dashboard, find what's working, cut what isn't, and systematically double down on winners.",
   },
 ];
 
 const founders = [
-  "All 10 guides — today and every future drop",
+  "All 10 guides - today and every future drop",
   "AI prompting library + full software stack",
   "Word-for-word scripts and content templates",
   "Violation avoidance guide (keep your account safe)",
@@ -113,7 +113,7 @@ export default async function PricingPage() {
         <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
           Get the exact system behind
           <br className="hidden sm:block" />
-          <span className="text-accent">10M+ views and $5K in a week.</span>
+          <span className="text-accent">10M+ views and $5K in one week from two videos.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           Every guide, script, and template from{" "}
@@ -125,7 +125,7 @@ export default async function PricingPage() {
           >
             {siteConfig.tiktokHandle}
           </a>{" "}
-          — the exact system behind 10M+ views and $5K in one week from just 2
+          - the exact system behind 10M+ views and $5K in one week from just 2
           AI skeleton videos.
         </p>
       </div>
@@ -143,7 +143,7 @@ export default async function PricingPage() {
 
         <div className="relative p-8 sm:p-12">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
-            {/* Left — price + spots + CTA */}
+            {/* Left - price + spots + CTA */}
             <div className="lg:w-64 lg:shrink-0">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
                 <span className="relative flex h-1.5 w-1.5">
@@ -176,7 +176,7 @@ export default async function PricingPage() {
               )}
             </div>
 
-            {/* Right — feature list */}
+            {/* Right - feature list */}
             <div className="flex-1">
               <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 Everything included
@@ -194,7 +194,7 @@ export default async function PricingPage() {
         </div>
       </div>
 
-      {/* Proof — viral videos */}
+      {/* Proof - viral videos */}
       <div className="mt-24">
         <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           The receipts
@@ -203,7 +203,7 @@ export default async function PricingPage() {
           10M+ views. See for yourself.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
-          These are the two videos. Click either one and watch — then
+          These are the two videos. Click either one and watch - then
           decide if you want to know exactly how they were made.
         </p>
 
@@ -250,7 +250,7 @@ export default async function PricingPage() {
         </div>
       </div>
 
-      {/* What's inside — detailed grid */}
+      {/* What's inside - detailed grid */}
       <div className="mt-24">
         <p className="mb-2 text-center text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
           What&apos;s inside
@@ -260,7 +260,7 @@ export default async function PricingPage() {
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">
           Every piece is built from what actually worked inside a top TikTok
-          Shop — not theory pulled from someone else&apos;s playbook.
+          Shop - not theory pulled from someone else&apos;s playbook.
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -292,7 +292,7 @@ export default async function PricingPage() {
           </p>
           <p className="mt-3 font-display text-3xl font-semibold">$0</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Free guides, dispatch newsletter, and community access — no card
+            Free guides, dispatch newsletter, and community access - no card
             needed.
           </p>
           <Link

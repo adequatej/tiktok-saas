@@ -32,7 +32,7 @@ export async function GET(
     return NextResponse.redirect(new URL("/guides", req.url), { status: 302 });
   }
 
-  // Fire-and-forget — don't await so redirect isn't delayed
+  // Fire-and-forget - don't await so redirect isn't delayed
   recordClick(code, req).catch(() => {});
 
   return NextResponse.redirect(link.destination, { status: 302 });

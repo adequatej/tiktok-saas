@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: guide.title,
     description: guide.description,
     openGraph: {
-      title: `${guide.title} — ${siteConfig.name}`,
+      title: `${guide.title} - ${siteConfig.name}`,
       description: guide.description,
     },
   };
@@ -143,7 +143,7 @@ export default async function GuidePage({ params }: Props) {
             Want the full system?
           </p>
           <p className="mb-4 text-sm text-muted-foreground">
-            The Founders Bundle includes 9 more guides — the complete AI workflow,
+            The Founders Bundle includes 9 more guides - the complete AI workflow,
             scripts, editing techniques, brand deal templates, and more.
           </p>
           <Link

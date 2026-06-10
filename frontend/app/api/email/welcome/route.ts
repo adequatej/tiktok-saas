@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const { error } = await getResend().emails.send({
     from: "Billy Explains <hello@billyexplains.com>",
     to: email,
-    subject: "You're in — here's where to start",
+    subject: "You're in - here's where to start",
     html: buildWelcomeEmail(),
   });
 

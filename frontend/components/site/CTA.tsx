@@ -36,7 +36,7 @@ export function CTA() {
                 that actually sells?
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Every guide, script, and playbook — built by a top TikTok
+                Every guide, script, and playbook - built by a top TikTok
                 Shop creator, for sellers who want the same results.
               </p>
             </div>

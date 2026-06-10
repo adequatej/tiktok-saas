@@ -19,7 +19,7 @@ export function PurchaseSuccessBanner() {
         <CheckCircle className="size-5 shrink-0 text-accent" />
         <div>
           <p className="text-sm font-semibold text-foreground">
-            You&apos;re in — all guides unlocked.
+            You&apos;re in - all guides unlocked.
           </p>
           <p className="mt-0.5 text-xs text-muted-foreground">
             Welcome email on its way. Start with any guide below.

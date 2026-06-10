@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${siteConfig.name} — who's behind it and why it exists.`,
+  description: `About ${siteConfig.name} - who's behind it and why it exists.`,
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <p>
           I didn&apos;t start with TikTok Shop. I started with TikTok&apos;s{" "}
           <span className="text-foreground font-medium">Creator Rewards Program</span>{" "}
-          — where you earn roughly $1 per 1,000 views depending on your RPM.
+          - where you earn roughly $1 per 1,000 views depending on your RPM.
           That model forced me to get obsessed with one thing: views. More
           specifically, two metrics that determine whether TikTok pushes your
           video or buries it.
@@ -34,7 +34,7 @@ export default function AboutPage() {
           The second is{" "}
           <span className="text-foreground font-medium">percentage of full video watched</span>.
           If those two numbers aren&apos;t high enough, the algorithm stops
-          distributing your video — no matter how good the content is. I spent
+          distributing your video - no matter how good the content is. I spent
           years engineering every second of my videos around those two
           signals.{" "}
           <Link
@@ -50,13 +50,13 @@ export default function AboutPage() {
           people watch a video all the way through. That&apos;s the same skill
           that makes a TikTok Shop video sell. High watch time means more
           people see your product, more people click, more people buy. The
-          mechanics are identical — I just had a head start.
+          mechanics are identical - I just had a head start.
         </p>
 
         <p>
           That head start was built across{" "}
           <span className="text-foreground font-medium">10+ niches and accounts</span>{" "}
-          over several years. Fashion, tech, finance, lifestyle, gaming — I
+          over several years. Fashion, tech, finance, lifestyle, gaming - I
           tested what works and what doesn&apos;t across all of them. Across
           those accounts I&apos;ve accumulated{" "}
           <span className="text-foreground font-medium">500K+ followers</span>{" "}
@@ -69,11 +69,11 @@ export default function AboutPage() {
           There&apos;s one more layer. Beyond the creator side, I&apos;m a{" "}
           <span className="text-foreground font-medium">full-time software engineer</span>.
           That means I actually understand how the AI tools in this stack work
-          — text-to-image (T2I), image-to-video (I2V), model behavior, output
+          - text-to-image (T2I), image-to-video (I2V), model behavior, output
           consistency. I&apos;m not just using these tools, I understand them.
           That&apos;s what lets me write{" "}
           <span className="text-foreground font-medium">prompts that produce repeatable results</span>{" "}
-          instead of random outputs — which is the difference between a workflow
+          instead of random outputs - which is the difference between a workflow
           you can scale and one you can&apos;t.
         </p>
 

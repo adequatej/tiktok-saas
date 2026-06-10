@@ -77,7 +77,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative flex flex-1 flex-col">
-        {/* Headline + CTAs — centered */}
+        {/* Headline + CTAs - centered */}
         <div className="flex flex-1 flex-col items-center justify-center px-6 pb-6 pt-24 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,8 @@ export function Hero() {
             className="mt-5 max-w-[500px] text-base leading-relaxed text-foreground/50 sm:text-lg"
           >
             Everything I wish I knew when I started. AI tools, scripts, editing
-            tricks, and the exact system I used to make $5K in one week on TikTok Shop.
+            tricks, and the exact system I used to make $5K in one week from
+            two videos on TikTok Shop.
           </motion.p>
 
           <motion.div
@@ -145,7 +146,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Product peek — slides up after headline settles */}
+        {/* Product peek - slides up after headline settles */}
         <motion.div
           initial={{ opacity: 0, y: 64 }}
           animate={{ opacity: 1, y: 0 }}

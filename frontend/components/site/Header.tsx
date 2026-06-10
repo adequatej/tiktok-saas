@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Show, UserButton } from "@clerk/nextjs";
 import { navLinks, siteConfig } from "@/lib/config";
 import { MobileMenu } from "./MobileMenu";
 
@@ -25,7 +26,18 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+          <Show when="signed-out">
+            <Link
+              href="/sign-in"
+              className="text-sm text-muted-foreground transition hover:text-foreground"
+            >
+              Sign in
+            </Link>
+          </Show>
           <Link
             href="/pricing"
             className="inline-flex h-9 items-center rounded-full bg-accent px-4 text-sm font-semibold text-accent-foreground transition hover:bg-amber-400"
