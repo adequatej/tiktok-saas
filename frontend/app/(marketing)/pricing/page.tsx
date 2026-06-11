@@ -77,14 +77,17 @@ const founders = [
   "Lifetime updates as the system evolves",
 ];
 
-const { founderPrice, fullPrice, spotsRemaining, spotsTotal, countdownEnd } =
+const { founderPrice, fullPrice, spotsTotal, spotsSoldBaseline, countdownCycleDays } =
   launchConfig;
+
+const discountPercent = Math.round((1 - founderPrice / fullPrice) * 100);
 
 export default async function PricingPage() {
   const { userId } = await auth();
+  const supabase = createServiceClient();
+
   let hasPurchased = false;
   if (userId) {
-    const supabase = createServiceClient();
     const { data } = await supabase
       .from("purchases")
       .select("id")
@@ -92,6 +95,12 @@ export default async function PricingPage() {
       .maybeSingle();
     hasPurchased = !!data;
   }
+
+  const { count } = await supabase
+    .from("purchases")
+    .select("id", { count: "exact", head: true });
+  const spotsRemaining = Math.max(1, spotsTotal - spotsSoldBaseline - (count ?? 0));
+
   return (
     <div className="mx-auto max-w-5xl px-6 pb-24 pt-12">
       {/* Urgency bar */}
@@ -108,7 +117,7 @@ export default async function PricingPage() {
             when the timer hits zero
           </p>
         </div>
-        <CountdownTimer endDate={countdownEnd} nextPrice={fullPrice} />
+        <CountdownTimer cycleDays={countdownCycleDays} />
       </div>
 
       {/* Page header */}
@@ -152,16 +161,19 @@ export default async function PricingPage() {
             {/* Left - price + spots + CTA */}
             <div className="lg:w-64 lg:shrink-0">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent">
-                <span className="relative flex h-1.5 w-1.5">
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
                 </span>
-                {spotsRemaining} of {spotsTotal} spots at this price
+                Limited spots - {spotsRemaining}/{spotsTotal} left
               </div>
 
               <div>
-                <p className="font-display text-6xl font-bold tracking-tight">
+                <p className="flex items-center gap-3 font-display text-6xl font-bold tracking-tight">
                   ${founderPrice}
+                  <span className="rounded-full bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
+                    -{discountPercent}%
+                  </span>
                 </p>
                 <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                   <span className="line-through">${fullPrice}</span>

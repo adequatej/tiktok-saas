@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -85,6 +86,7 @@ export default function RootLayout({
         <div className="h-[88px]" aria-hidden />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

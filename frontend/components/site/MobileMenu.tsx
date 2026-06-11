@@ -14,13 +14,18 @@ export function MobileMenu() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
         className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:border-accent/40 hover:text-foreground"
       >
         {open ? <X className="size-4" /> : <Menu className="size-4" />}
       </button>
 
       {open && (
-        <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-border/60 bg-card/95 p-4 backdrop-blur-md">
+        <div
+          id="mobile-menu"
+          className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-border/60 bg-card/95 p-4 backdrop-blur-md"
+        >
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
